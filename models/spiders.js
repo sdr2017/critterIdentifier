@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes){
 	
-	var Spiders = sequelize.define("spider", {
+	var Spider = sequelize.define("spider", {
 		
 	UserId: DataTypes.INTEGER,
 	Identified: {
@@ -28,7 +28,18 @@ module.exports = function(sequelize, DataTypes){
 	
 	{paranoid:true})
 	
-	return Spiders;
+	
+	Spider.associate = function(models) {
+    // We're saying that a Post should belong to an Author
+    // A Post can't be created without an Author due to the foreign key constraint
+    Spider.belongsTo(models.user, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+	
+	return Spider;
 	
 	
 	
