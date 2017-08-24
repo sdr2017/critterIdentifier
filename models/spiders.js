@@ -2,7 +2,7 @@ module.exports = function(sequelize, DataTypes){
 	
 	var Spiders = sequelize.define("spider", {
 		
-	UserId: DataTypes.Integer,
+	UserId: DataTypes.INTEGER,
 	Identified: {
       type: DataTypes.BOOLEAN,
       default: false
