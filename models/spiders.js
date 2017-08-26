@@ -4,33 +4,31 @@ module.exports = function(sequelize, DataTypes){
 
 	//UserId: DataTypes.INTEGER,
 	
-	Identified: {
-      type: DataTypes.BOOLEAN,
-      default: false
-    },
-    
-    Name: DataTypes.STRING,
-    
-    Dangerous: {
-      type: DataTypes.BOOLEAN,
-      default: false
-    },
-    
-    ZipCode: DataTypes.INTEGER,
-	Size: DataTypes.STRING,
-    Color: DataTypes.STRING,
-     Hairy: {
-      type: DataTypes.BOOLEAN,
-      default: false
-    },
-    Web: {
-      type: DataTypes.BOOLEAN,
-      default: false
-    }
+	identified: {
+    type: DataTypes.BOOLEAN,
+    default: false
+  },
 
-    	},
+  name: DataTypes.STRING,
 
-	{paranoid:true})
+  dangerous: {
+    type: DataTypes.BOOLEAN,
+    default: false
+  },
+
+  zipCode: DataTypes.INTEGER,
+  size: DataTypes.STRING,
+  color: DataTypes.STRING,
+  hairy: {
+    type: DataTypes.BOOLEAN,
+    default: false
+  },
+  web: {
+    type: DataTypes.BOOLEAN,
+    default: false
+  }
+
+}, { paranoid:true });
 
 
 	Spider.associate = function(models) {
@@ -42,9 +40,5 @@ module.exports = function(sequelize, DataTypes){
       }
     });
   };
-
-	return Spider;
-
-
-
-}
+  return Spider;
+};

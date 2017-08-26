@@ -6,7 +6,6 @@ var path = require('path');
 var fileUpload = require('express-fileupload');
 var s3 = require('s3');
 var keys = require('./keys.js');
-var spiders = require("./models/spiders");
 var db = require("./models");
 
 var PORT = process.env.PORT || 8080;
@@ -83,11 +82,27 @@ app.post('/upload', function(req, res) {
 
 require('./routing/html-routes')(app);
 
-db.sequelize.sync().then(function(){
-
-	app.listen(PORT, function() {
-
-		console.log("Listening on port %s", PORT);
+db.sequelize.sync({force: true}).then(function(){
+	var user = db.user.build({
+		email: "foo@bar.com"
 	});
-
+	user.save()
+	.then(function() {
+		user.createSpider({
+			identified: false,
+			name: "mr. spider",
+			dangerous: true,
+			zipCode: 80303,
+			size: "Large",
+			color: "black",
+			hairy: true,
+			web: true
+		})
+		.then(function() {
+			console.log("We made a thing!");
+			app.listen(PORT, function() {
+				console.log("Listening on port %s", PORT);
+			});
+		});
+	});
 });
