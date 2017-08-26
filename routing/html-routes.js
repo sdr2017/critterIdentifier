@@ -22,8 +22,8 @@ module.exports = function(app) {
   });
 
   // The Upload route loads upload.html
-  app.get("/blog", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+  app.get("/upload", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/upload.html"));
   });
   
 };
