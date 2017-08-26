@@ -11,3 +11,27 @@
 	border-radius: 15px;
 	border-color: black;
 }
+
+.modalStyle {
+  position: fixed;
+  max-width: 100%;
+  top: 25%;
+  transform: translate(0%, 0%);
+}
+
+.modal-content {
+	width: 240%;
+}
+
+.modal-dialog {
+	left: -25%;
+	max-width: 35%;
+}
+
+@media screen and (max-width: 575px) and (min-width: 0px) {
+
+	.modal-dialog {
+		left: 5%;
+		max-width: 35%;
+	}
+}
