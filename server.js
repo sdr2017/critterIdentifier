@@ -15,7 +15,6 @@ var app = express();
 
 require("./routing/html-routes.js")(app);
 
-
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
 debugger;

@@ -16,14 +16,15 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../views/index.html"));
   });
 
-  // The Category route loads cms.html
-  app.get("/category.html", function(req, res) {
+  // The Category route loads Category.html
+  app.get("/category", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/category.html"));
   });
 
   // The Upload route loads upload.html
 
   app.get("/upload.html", function(req, res) {
+
     res.sendFile(path.join(__dirname, "../views/upload.html"));
   });
 
