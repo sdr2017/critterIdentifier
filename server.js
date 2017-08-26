@@ -40,6 +40,7 @@ app.get('/upload', function(req, res) {
 
 app.post('/upload', function(req, res) {
 	if (!req.files) {
+		console.log(req.files);
 		return res.status(400).send('No files were uploaded.');
 	}
 
