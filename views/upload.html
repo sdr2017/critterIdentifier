@@ -38,10 +38,10 @@
 						<a href="/"><div class="logo">SOME LOGO</div></a>
 	 		 		</div>
 	 		 		<div class="col-lg-5 upload">
-	 		 			<a href="/upload.html"><button type="submit" class="btn btn-lg btn-block" id="submitDetails">UPLOAD</button></a>
+	 		 			<a href="/upload"><button type="submit" class="btn btn-lg btn-block" id="uploadButton">UPLOAD</button></a>
 			 		</div>
 			 		<div class="col-lg-5 catogory">
-			 			<a href="/category.html"><button type="submit" class="btn btn-lg btn-block" id="submitDetails">VIEW BY CATEGORY</button></a>
+			 			<a href="/category"><button type="submit" class="btn btn-lg btn-block" id="categoryButton">VIEW BY CATEGORY</button></a>
 					</div>
 				</div>
 			</div>
@@ -50,7 +50,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 
-              <form ref="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+<form ref="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
 
   <div class="form-group">
     <label for="email">Email address</label>
@@ -117,13 +117,12 @@
 
   <div class="form-group">
     <label for="imageFile">File input</label>
-    <input type="file" class="form-control-file" id="imageFile" aria-describedby="fileHelp">
+    <input type="file" class="form-control-file" id="imageFile" aria-describedby="fileHelp" name="critterUpload">
     <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
   </div>
 
-    <input type="submit" name="critterUpload"/>
+    <input type="submit"/>
     <br></br>
-
 
   </form>
 					</div>
