@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
-  // Getting jQuery references to the post body, title, form, and author select
+  // Getting jQuery references to the form fields for ease of access
 
-  var bodyInput = $("#body");
-  var titleInput = $("#title");
-  var cmsForm = $("#cms");
+  var emailInput = $("#exampleInputEmail1");
+  var zipCodeInput = $("#zipCode");
+  var critterTypeInput = $("#exampleSelect1");
   var authorSelect = $("#author");
 
   // Adding an event listener for when the form is submitted
