@@ -14,58 +14,71 @@
 <!-- CSS Sheet -->
 			<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
+<!-- Autocomplete JS -->
+    <link rel="stylesheet" href="./autocomplete.js">
+
  		 </head>
 
  		 <body>
 
- 		 	<div class="container-fluid">
+ 		 	<div class="container-fluid" id="headerBar">
 	 		 	<div class="row">
-	 		 		<div class="col-lg-2">
-						<a href="index.html"><div class="logo">SOME LOGO</div></a>
+	 		 		<div class="col-lg-4">
+						<a href="/"><div class="logo"><img id="logo" src="assets/images/logo.svg"></div></a>
 	 		 		</div>
-	 		 		<div class="col-lg-5 upload">
-	 		 			<a href="upload.html"><button type="submit" class="btn btn-lg btn-block" id="submitDetails">UPLOAD</button></a>
+	 		 		<div class="col-lg-4 upload">
+	 		 			<a href="/upload"><button type="button" class="btn btn-lg btn-block" id="uploadButton">UPLOAD</button></a>
 			 		</div>
-			 		<div class="col-lg-5 catogory">
-			 			<a href="category.html"><button type="submit" class="btn btn-lg btn-block" id="submitDetails">VIEW BY CATEGORY</button></a>
+			 		<div class="col-lg-4 catogory">
+			 			<a href="/category"><button type="button" class="btn btn-lg btn-block" id="categoryButton">VIEW BY CATEGORY</button></a>
 					</div>
 				</div>
 			</div>
 
 			<div class="container-fluid">
 				<div class="row">
-  					<div class="col-lg-12">
-    					<div class="input-group">
-      						<div class="input-group-btn">
-        						<button type="button" class="btn btn-secondary categorySelector" id="categorySelector">--------- Search ---------</button>
-        						<button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          							<span class="sr-only">Toggle Dropdown</span>
-        						</button>
-        						<div class="dropdown-menu">
-          							<a class="dropdown-item" href="#">Category 1</a>
-          							<a class="dropdown-item" href="#">Category 2</a>
-         			 				<a class="dropdown-item" href="#">Category 3</a>
-         			 				<a class="dropdown-item" href="#">Category 4</a>
-         			 				<a class="dropdown-item" href="#">Category 5</a>
-         			 				<a class="dropdown-item" href="#">Category 6</a>
-         			 				<a class="dropdown-item" href="#">Category 7</a>
-         			 				<a class="dropdown-item" href="#">Category 8</a>
-         			 				<a class="dropdown-item" href="#">Category 9</a>
-          							<div role="separator" class="dropdown-divider"></div>
-          							<a class="dropdown-item" href="#">Giant Spiders</a>
-          							<a class="dropdown-item" href="#">Big Spiders</a>
-          							<a class="dropdown-item" href="#">Normal imaged Spiders</a>
-          							<a class="dropdown-item" href="#">Small Spiders</a>
-          							<a class="dropdown-item" href="#">Hairy Spiders</a>
-          							<a class="dropdown-item" href="#">Smooth Spiders</a>
-          							<a class="dropdown-item" href="#">Black Spiders</a>
-          							<a class="dropdown-item" href="#">Brown Spiders</a>
-          							<a class="dropdown-item" href="#">Brightly Colored Spiders</a>
-        						</div>
-      						</div>
-      						<input type="text" class="form-control" aria-label="Text input with segmented button dropdown">
-    					</div>
-  					</div>
+
+  					<div class="form-group col-lg-2">
+					    <select class="form-control" id="critterType">
+					    	<option selected value='null'>Critter Type</option>
+							<option value='spider'>Spiders</option>
+					    </select>
+					</div>
+
+  					<div class="form-group col-lg-2">
+						<select class="form-control" id="critterSize">
+							<option selected value='null'>Size</option>
+							<option value='small'>Small</option>
+							<option value='medium'>Medium</option>
+							<option value='large'>Large</option>
+					    </select>
+					</div>
+
+  					<div class="form-group col-lg-2">
+							<select class="form-control" id="critterColor">
+								<option selected value='null'>Color</option>
+								<option value='brown'>Brown</option>
+								<option value='black'>Black</option>
+								<option value='grey'>Grey</option>
+								<option value='red'>Red</option>
+								<option value='orange'>Orange</option>
+								<option value='yellow'>Yellow</option>
+								<option value='green'>Green</option>
+								<option value='blue'>Blue</option>
+								<option value='purple'>Purple</option>
+							</select>
+					</div>
+
+<!--SEARCH BAR-->
+  					<div class="col-lg-6">
+					    <div class="input-group" id="nameInput">
+					      <input type="text" class="form-control" placeholder="Search By Spider Name">
+					      <span class="input-group-btn">
+					        <button class="btn btn-secondary" type="submit">Submit</button>
+					      </span>
+					    </div>
+					</div>
+
 				</div>
 			</div>
 
@@ -132,39 +145,54 @@
   				</div>
   			</div>
 
-      <!-- Modal -->
+<!-- Modal -->
         <div class="modal fade modalStyle" id="crittersModal" tabindex="-1" role="dialog" aria-labelledby="crittersModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="critterModalLabel">Name of Critter</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                  <h5 class="modal-title" id="critterModalLabel">Name:</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
               </div>
               <div class="modal-body">
-                <div id="nameInfo"></div>
-                  <div id="photoImage"></div>
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <div id="photoImage">
+                  <a href="https://placeholder.com"><img src="http://via.placeholder.com/300x300"></a>
+                </div>
+                <div id="spiderInfo">
+                  <ul>
+                    <li id="spiderColor">Color:</li>
+                    <li id="spiderSize">Size:</li>
+                    <li id="spiderWeb">Web:</li>
+                  </ul>
+                </div>
+                <div class="col-lg-12">
+                  <div class="input-group" id="nameInput">
+                    <input type="text" class="form-control" placeholder="Submit a Name for this Critter">
+                    <span class="input-group-btn">
+                      <button class="btn btn-secondary" type="submit">Submit</button>
+                    </span>
+                  </div>
+                </div>
+                <br>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
+    <!-- End of Modal -->
 
-      <!-- End of Modal -->
-
-
-			<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
 <!-- AutoComplete JS -->
 			<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 			<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+			<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
@@ -177,19 +205,6 @@
         $("#crittersModal").modal("show");
       })
     </script>
-    <!-- AutoComplete -->
-    <script>
-    $( document ).ready(function() {
-      $( ".form-control" ).autocomplete({
-        source: [ "brown recluse", "black widow", "hobo spider", "funnel web grass spider", "mouse spider",
-        "wolf spider", "orb weaving spider", "cellar spider", "huntsman spider", "tarantula", "web spinners", "orb weaver",
-        "black and yellow spiders", "argiope", "jewel spider", "orchard spider", "nursery web spider", "trapdoor spider",
-        "fishing spider", "jumping spider", "flower spider", "parson spider", "green lynx spider", "daddy long legs"  ]
-      });
-    });
-    </script>
-
-
 
   		</body>
 	 </html>

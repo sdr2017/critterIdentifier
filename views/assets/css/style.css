@@ -1,3 +1,18 @@
+#headerBar{
+	height: 75px;
+	width: 100%;	
+}
+
+#logo{
+	margin: 5px;
+	width: 100%;
+}
+
+#uploadButton, #categoryButton{
+	margin: 5px;
+	width: 100%;
+}
+
 #categorySelector {
 	width: 100%;
 	text-align: center;
