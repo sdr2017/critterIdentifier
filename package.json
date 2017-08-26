@@ -21,7 +21,9 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
+    "express-fileupload": "^0.1.4",
     "mysql2": "^1.4.1",
+    "s3": "^4.4.0",
     "sequelize": "^4.7.2"
   }
 }
