@@ -23,7 +23,7 @@ module.exports = function(app) {
 
   // The Upload route loads upload.html
 
-  app.get("/upload.html", function(req, res) {
+  app.get("/upload", function(req, res) {
 
     res.sendFile(path.join(__dirname, "../views/upload.html"));
   });
