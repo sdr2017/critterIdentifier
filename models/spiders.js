@@ -2,16 +2,20 @@ module.exports = function(sequelize, DataTypes){
 
 	var Spider = sequelize.define("spider", {
 
-	UserId: DataTypes.INTEGER,
+	//UserId: DataTypes.INTEGER,
+	
 	Identified: {
       type: DataTypes.BOOLEAN,
       default: false
     },
+    
     Name: DataTypes.STRING,
+    
     Dangerous: {
       type: DataTypes.BOOLEAN,
       default: false
     },
+    
     ZipCode: DataTypes.INTEGER,
 	Size: DataTypes.STRING,
     Color: DataTypes.STRING,

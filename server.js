@@ -6,6 +6,7 @@ var fileUpload = require('express-fileupload');
 var s3 = require('s3');
 var keys = require('./keys.js');
 var spiders = require("./models/spiders");
+var db = require("./models")
 
 var PORT = process.env.PORT || 8080;
 
