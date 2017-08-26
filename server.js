@@ -19,7 +19,6 @@ require("./routing/html-routes.js")(app);
 app.use(express.static("public"));
 debugger;
 
-
 var client = s3.createClient({
 	maxAsyncS3: 20, // this is the default
 	s3RetryCount: 3, // this is the default
@@ -41,27 +40,31 @@ app.get('/upload', function(req, res) {
 });
 
 app.post('/upload', function(req, res) {
-	console.log("This is working");
 	if (!req.files) {
 		return res.status(400).send('No files were uploaded.');
 	}
 
+// Critter Upload using S3 client
+
 	// The name of the input field (i.e. "critterUpload") is used to retrieve the uploaded file
 	var critterUpload = req.files.critterUpload;
+	var timeInMs = Date.now();
+	var critterJpg = timeInMs + req.files.critterUpload.name;
+	console.log(critterJpg);
 
 	// Use the mv() method to place the file somewhere on your server
-	critterUpload.mv('uploads/' + req.files.critterUpload.name, function(err) {
+	critterUpload.mv('uploads/' + critterJpg, function(err) {
 		if (err) {
 			return res.status(500).send(err);
 		}
 
 		// Upload to S3
 		var params = {
-			localFile: 'uploads/' + req.files.critterUpload.name,
+			localFile: 'uploads/' + critterJpg,
 
 			s3Params: {
 				Bucket: keys.s3bucket,
-				Key: req.files.critterUpload.name, // File path of location on S3
+				Key: critterJpg, // File path of location on S3
 			},
 		};
 		var uploader = client.uploadFile(params);
@@ -76,7 +79,7 @@ app.post('/upload', function(req, res) {
 	});
 });
 
-
+// End of S3 Client
 
 require('./routing/html-routes')(app);
 
