@@ -18,8 +18,17 @@ var app = express();
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
 
+db.sequelize.sync().then(function(){
+
+	app.listen(PORT, function() {
+
+		console.log("Listening on port %s", PORT);
+	});
+
+});
 
 //adding s3 client ///////////////////////////////////////////////////////////////////////////////////////////
+/*
 var client = s3.createClient({
 	maxAsyncS3: 20, // this is the default 
 	s3RetryCount: 3, // this is the default 
@@ -74,16 +83,10 @@ app.post('/upload', function(req, res) {
 		});
 	});
 });
+*/
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
 
-db.sequelize.sync().then(function(){
 
-	app.listen(PORT, function() {
-
-		console.log("Listening on port %s", PORT);
-	});
-
-});
