@@ -7,7 +7,7 @@ var fileUpload = require('express-fileupload');
 var s3 = require('s3');
 var keys = require('./keys.js');
 var spiders = require("./models/spiders");
-var db = require("./models")
+var db = require("./models");
 
 var PORT = process.env.PORT || 8080;
 
@@ -19,20 +19,7 @@ require("./routing/html-routes.js")(app);
 app.use(express.static("public"));
 debugger;
 
-require('./routing/html-routes')(app);
 
-db.sequelize.sync().then(function(){
-
-	app.listen(PORT, function() {
-
-		console.log("Listening on port %s", PORT);
-	});
-
-});
-
-
-//adding s3 client ///////////////////////////////////////////////////////////////////////////////////////////
-/*
 var client = s3.createClient({
 	maxAsyncS3: 20, // this is the default
 	s3RetryCount: 3, // this is the default
@@ -49,31 +36,32 @@ var client = s3.createClient({
 
 app.use(fileUpload());
 
-app.get('/', function(req, res) {
-	res.sendFile(path.join(__dirname, '/views', 'index.html'));
+app.get('/upload', function(req, res) {
+	res.sendFile(path.join(__dirname, '/views', 'upload.html'));
 });
 
 app.post('/upload', function(req, res) {
+	console.log("This is working");
 	if (!req.files) {
 		return res.status(400).send('No files were uploaded.');
 	}
 
-	// The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-	var sampleFile = req.files.sampleFile;
+	// The name of the input field (i.e. "critterUpload") is used to retrieve the uploaded file
+	var critterUpload = req.files.critterUpload;
 
 	// Use the mv() method to place the file somewhere on your server
-	sampleFile.mv('uploads/' + req.files.sampleFile.name, function(err) {
+	critterUpload.mv('uploads/' + req.files.critterUpload.name, function(err) {
 		if (err) {
 			return res.status(500).send(err);
 		}
 
 		// Upload to S3
 		var params = {
-			localFile: 'uploads/' + req.files.sampleFile.name,
+			localFile: 'uploads/' + req.files.critterUpload.name,
 
 			s3Params: {
 				Bucket: keys.s3bucket,
-				Key: req.files.sampleFile.name, // File path of location on S3
+				Key: req.files.critterUpload.name, // File path of location on S3
 			},
 		};
 		var uploader = client.uploadFile(params);
@@ -87,5 +75,16 @@ app.post('/upload', function(req, res) {
 		});
 	});
 });
-*/
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+require('./routing/html-routes')(app);
+
+db.sequelize.sync().then(function(){
+
+	app.listen(PORT, function() {
+
+		console.log("Listening on port %s", PORT);
+	});
+
+});

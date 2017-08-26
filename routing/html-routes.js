@@ -27,5 +27,4 @@ module.exports = function(app) {
 
     res.sendFile(path.join(__dirname, "../views/upload.html"));
   });
-
 };
