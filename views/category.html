@@ -164,12 +164,22 @@
 			<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 			<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+<!-- Modal script -->
     <script>
       $(".image").on("click", function(){
         $("#crittersModal").modal("show");
       })
+    </script>
+    <!-- AutoComplete -->
+    <script>
+    $( document ).ready(function() {
+      $( ".form-control" ).autocomplete({
+        source: [ "brown recluse", "black widow", "hobo spider", "funnel web grass spider", "mouse spider",
+        "wolf spider", "orb weaving spider", "cellar spider", "huntsman spider", "tarantula", "web spinners", "orb weaver",
+        "black and yellow spiders", "argiope", "jewel spider", "orchard spider", "nursery web spider", "trapdoor spider",
+        "fishing spider", "jumping spider", "flower spider", "parson spider", "green lynx spider", "daddy long legs"  ]
+      });
+    });
     </script>
 
 
