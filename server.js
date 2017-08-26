@@ -1,3 +1,4 @@
+// Dependencies
 var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
@@ -12,12 +13,10 @@ var PORT = process.env.PORT || 8080;
 
 var app = express();
 
-
-
-
-
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
+
+require('./routing/html-routes')(app);
 
 db.sequelize.sync().then(function(){
 
@@ -28,19 +27,20 @@ db.sequelize.sync().then(function(){
 
 });
 
+
 //adding s3 client ///////////////////////////////////////////////////////////////////////////////////////////
 /*
 var client = s3.createClient({
-	maxAsyncS3: 20, // this is the default 
-	s3RetryCount: 3, // this is the default 
-	s3RetryDelay: 1000, // this is the default 
-	multipartUploadThreshold: 20971520, // this is the default (20 MB) 
-	multipartUploadSize: 15728640, // this is the default (15 MB) 
+	maxAsyncS3: 20, // this is the default
+	s3RetryCount: 3, // this is the default
+	s3RetryDelay: 1000, // this is the default
+	multipartUploadThreshold: 20971520, // this is the default (20 MB)
+	multipartUploadSize: 15728640, // this is the default (15 MB)
 	s3Options: {
 		accessKeyId: keys.s3accesskey,
 		secretAccessKey: keys.s3secretaccesskey,
-		// any other options are passed to new AWS.S3() 
-		// See: http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#constructor-property 
+		// any other options are passed to new AWS.S3()
+		// See: http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#constructor-property
 	},
 });
 
@@ -55,10 +55,10 @@ app.post('/upload', function(req, res) {
 		return res.status(400).send('No files were uploaded.');
 	}
 
-	// The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file 
+	// The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
 	var sampleFile = req.files.sampleFile;
 
-	// Use the mv() method to place the file somewhere on your server 
+	// Use the mv() method to place the file somewhere on your server
 	sampleFile.mv('uploads/' + req.files.sampleFile.name, function(err) {
 		if (err) {
 			return res.status(500).send(err);
@@ -86,8 +86,3 @@ app.post('/upload', function(req, res) {
 });
 */
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
