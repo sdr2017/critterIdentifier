@@ -101,6 +101,12 @@ db.sequelize.sync({force: true}).then(function(){
 		})
 		.then(function() {
 			console.log("We made a thing!");
+			app.post("/spidersForm", function(req, res) {
+  // handle form params here
+});
+
+
+
 			app.listen(PORT, function() {
 				console.log("Listening on port %s", PORT);
 			});
