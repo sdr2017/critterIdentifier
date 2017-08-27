@@ -107,10 +107,3 @@ app.post('/upload', function(req, res) {
 
 
 
-
-
-
-require('./routing/html-routes')(app);
-
-
-
