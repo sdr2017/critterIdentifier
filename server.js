@@ -14,7 +14,7 @@ var app = express();
 
 require("./routing/html-routes.js")(app);
 require('./routing/db-route.js')(app);
-require('./views/assets/js/upload.js')(app);
+// require('./views/assets/js/upload.js')(app);
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
