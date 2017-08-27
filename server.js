@@ -101,6 +101,3 @@ app.post('/upload', function(req, res) {
 });
 
 // End of S3 Client
-
-
-require('./routing/html-routes')(app);
