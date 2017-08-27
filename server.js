@@ -13,6 +13,8 @@ var PORT = process.env.PORT || 8080;
 var app = express();
 
 require("./routing/html-routes.js")(app);
+require('./routing/db-route.js')(app);
+require('./views/assets/js/upload.js')(app);
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
@@ -80,8 +82,6 @@ app.post('/upload', function(req, res) {
 });
 
 // End of S3 Client
-
-require('./routing/html-routes')(app);
 
 db.sequelize.sync({force: true}).then(function(){
 	var user = db.user.build({
