@@ -27,8 +27,9 @@ module.exports = function(sequelize, DataTypes){
     type: DataTypes.BOOLEAN,
     default: false
   },
-  comments: {
+  comment: {
     type: DataTypes.STRING,
+  },
 
 }, { paranoid:true });
 
