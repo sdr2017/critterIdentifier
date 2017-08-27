@@ -27,7 +27,6 @@ app.use(express.static(path.join(__dirname, 'views')));
 // =============================================================
 require("./routing/api-routes.js")(app);
 require("./routing/html-routes.js")(app);
-require('./routing/db-route.js')(app);
 // require('./views/assets/js/upload.js')(app);
 
 // Syncing our sequelize models and then starting our Express app
@@ -102,4 +101,3 @@ app.post('/upload', function(req, res) {
 		});
 	});
 });
-
