@@ -16,38 +16,39 @@
 
 <!-- CSS Sheet -->
 			<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-			<link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:500,600,700" rel="stylesheet">
 
  		 </head>
 
  		 <body>
 
- 		 	<div class="container-fluid" id="headerBar">
-	 		 	<div class="row">
-	 		 		<div class="col-lg-4 logo">
-						<a href="/"><div class="logo"><img id="logo" src="assets/images/logo.svg"></div></a>
+ 		 	<div class="container-fluid" >
+	 		 	<div class="row" id="headerBar">
+
+	 		 		<div class="col-lg-4 logo" id="logoButton">
+						<a href="/"><img id="logoImage" src="assets/images/logo.jpg">CRITTERCULL</a>
 	 		 		</div>
-	 		 		<div class="col-lg-4 upload">
-	 		 			<a href="/upload.html"><button type="button" class="btn btn-lg btn-block" id="uploadButton"><img id="finger" src="assets/images/finger.jpg">UPLOAD</button></a>
-			 		</div>
-			 		<div class="col-lg-4 catogory">
-			 			<a href="/category.html"><button type="button" class="btn btn-lg btn-block" id="categoryButton"><img id="eye" src="assets/images/search.jpg">VIEW BY CATEGORY</button></a>
+
+					<div class="col-lg-4 catogory" id="categoryButton">
+			 			<a id="selectedMenuItem" href="/category.html"><img id="eye" src="assets/images/search.jpg">VIEW BY CATEGORY</a>
 
 					</div>
+	 		 		<div class="col-lg-4 upload" id="uploadButton">
+	 		 			<a href="/upload.html"><img id="finger" src="assets/images/finger.jpg">UPLOAD</a>
+			 		</div>
+
 				</div>
-			</div>
 
-			<div class="container-fluid">
-				<div class="row">
+				<div class="row" id="refineSearch">
 
-  					<div class="form-group col-lg-2">
+  					<div class="form-group col-lg-2 refining">
 					    <select class="form-control" id="critterType">
 					    	<option selected value='null'>Critter Type</option>
 							<option value='spider'>Spiders</option>
 					    </select>
 					</div>
 
-  					<div class="form-group col-lg-2">
+  					<div class="form-group col-lg-2 refining">
 						<select class="form-control" id="critterSize">
 							<option selected value='null'>Size</option>
 							<option value='small'>Small</option>
@@ -56,7 +57,7 @@
 					    </select>
 					</div>
 
-  					<div class="form-group col-lg-2">
+  					<div class="form-group col-lg-2 refining">
 							<select class="form-control" id="critterColor">
 								<option selected value='null'>Color</option>
 								<option value='brown'>Brown</option>
@@ -72,7 +73,7 @@
 					</div>
 
 <!--SEARCH BAR-->
-  					<div class="col-lg-6">
+  					<div class="col-lg-6 refining">
 					    <div class="input-group" id="nameInput">
 					      <input type="text" class="form-control" placeholder="Search By Spider Name">
 					      <span class="input-group-btn">
@@ -82,7 +83,6 @@
 					</div>
 
 				</div>
-			</div>
 
  		 	<div class="container-fluid">
 	 		 	<div class="row">
@@ -146,6 +146,7 @@
 		 			</div>
   				</div>
   			</div>
+  		</div>
 
 <!-- Modal -->
         <div class="modal fade modalStyle" id="crittersModal" tabindex="-1" role="dialog" aria-labelledby="crittersModalLabel" aria-hidden="true">
