@@ -1,17 +1,67 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	background-color: #efefef;
+}
+
+.container-fluid{
+	margin: 0px;
+	padding: 0px;
+}
+
+.row{
+	margin: 0px;
+}
+
 #headerBar{
 	height: 75px;
-	width: 100%;	
+	width: 100%;
+	background-color: #efefef;
+	padding: 10px 20px 0px 20px;
+	border-bottom: #c4c4c4 1px solid;
 }
 
 #logo{
-	margin: 5px;
-	width: 100%;
+	float:left;
+	display: block;
+	margin: auto;
 }
 
-#uploadButton, #categoryButton{
-	margin: 5px;
-	width: 100%;
+a {
+	color: #454545;
 }
+
+a:hover{
+	color: #a0a0a0;
+	text-decoration: none;
+}
+
+#logoButton, #uploadButton, #categoryButton{
+	text-align: center;
+	font-family: 'Cormorant Garamond: 500', serif;
+	font-size: 20px;
+	letter-spacing: 2px;
+	line-height: 52px;
+}
+
+#selectedMenuItem{
+	color: #d06d58;
+}
+
+
+#logoImage, #finger, #eye{
+	align-items: right;
+	vertical-align: middle;
+	text-align: center;
+	margin: 0px 10px 2px 10px;
+}
+
+#refineSearch{
+	height: 75px;
+	background-color: #efefef;
+	padding: 20px;
+}
+
 
 #categorySelector {
 	width: 100%;
