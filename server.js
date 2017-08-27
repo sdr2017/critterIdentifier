@@ -100,4 +100,4 @@ app.post('/upload', function(req, res) {
 	});
 });
 
-// End of S3 Client
+// End of S3 Clients
