@@ -26,11 +26,11 @@
 // in the upload form, include the following:
 	// button to upload photo file
 	//user inputs:
-			// zipcode
-			// email
-			// color (dropdown, limit to black, brown, white, yellow, red, orange, green,)
-			// size: (dropdown, limit to small, med, lrg)
-			// Harry (yes or no, maybe a dropdown or tick box?)
+			// zipcode//
+			// email//
+			// color (dropdown, limit to black, brown, white, yellow, red, orange, green,)//
+			// size: (dropdown, limit to small, med, lrg)//
+			// Harry (yes or no, maybe a dropdown or tick box?)//
 			// Web (yes or no, maybe a dropdown or tick box?)
 			// Do you know then name of your spider? (yes or no, maybe a dropdown or tick box?)
 				// if yes, prompt for name, identification in DB will be TRUE
