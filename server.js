@@ -81,7 +81,41 @@ app.post('/upload', function(req, res) {
 
 // End of S3 Client
 
+
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
+});
+
+
+
+/*
+  // PUT route for updating todos. We can get the updated todo data from req.body
+  app.put("/api/todos", function(req, res) {
+    // Update takes in an object describing the properties we want to update, and
+    // we use where to describe which objects we want to update
+    db.Todo.update({
+      text: req.body.text,
+      complete: req.body.complete
+    }, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbTodo) {
+      res.json(dbTodo);
+    });
+  });
+
+};
+*/
+
+
+
 require('./routing/html-routes')(app);
+/*
 
 db.sequelize.sync({force: true}).then(function(){
 	var user = db.user.build({
@@ -97,7 +131,8 @@ db.sequelize.sync({force: true}).then(function(){
 			size: "Large",
 			color: "black",
 			hairy: true,
-			web: true
+			web: true,
+			link: "https://s3-us-west-2.amazonaws.com/critterbucket/1503777886077bananaSpidy.jpg"
 		})
 		.then(function() {
 			console.log("We made a thing!");

@@ -30,6 +30,7 @@ module.exports = function(sequelize, DataTypes){
   comment: {
     type: DataTypes.STRING,
   },
+  link: DataTypes.STRING,
 
 }, { paranoid:true });
 
