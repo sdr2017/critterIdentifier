@@ -115,36 +115,35 @@ db.sequelize.sync().then(function() {
 
 
 require('./routing/html-routes')(app);
-/*
-
-db.sequelize.sync({force: true}).then(function(){
-	var user = db.user.build({
-		email: "foo@bar.com"
-	});
-	user.save()
-	.then(function() {
-		user.createSpider({
-			identified: false,
-			name: "mr. spider",
-			dangerous: true,
-			zipCode: 80303,
-			size: "Large",
-			color: "black",
-			hairy: true,
-			web: true,
-			link: "https://s3-us-west-2.amazonaws.com/critterbucket/1503777886077bananaSpidy.jpg"
-		})
-		.then(function() {
-			console.log("We made a thing!");
-			app.post("/spidersForm", function(req, res) {
-  // handle form params here
-});
-
-
-
-			app.listen(PORT, function() {
-				console.log("Listening on port %s", PORT);
-			});
-		});
-	});
-});
+//
+// db.sequelize.sync({force: true}).then(function(){
+// 	var user = db.user.build({
+// 		email: "foo@bar.com"
+// 	});
+// 	user.save()
+// 	.then(function() {
+// 		user.createSpider({
+// 			identified: false,
+// 			name: "mr. spider",
+// 			dangerous: true,
+// 			zipCode: 80303,
+// 			size: "Large",
+// 			color: "black",
+// 			hairy: true,
+// 			web: true,
+// 			link: "https://s3-us-west-2.amazonaws.com/critterbucket/1503777886077bananaSpidy.jpg"
+// 		})
+// 		.then(function() {
+// 			console.log("We made a thing!");
+// 			app.post("/spidersForm", function(req, res) {
+//   // handle form params here
+// });
+//
+//
+//
+// 			app.listen(PORT, function() {
+// 				console.log("Listening on port %s", PORT);
+// 			});
+// 		});
+// 	});
+// });
