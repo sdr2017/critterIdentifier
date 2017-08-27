@@ -17,13 +17,13 @@ module.exports = function(app) {
   });
 
   // The Category route loads Category.html
-  app.get("/category", function(req, res) {
+  app.get("/category.html", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/category.html"));
   });
 
   // The Upload route loads upload.html
 
-  app.get("/upload", function(req, res) {
+  app.get("/upload.html", function(req, res) {
 
     res.sendFile(path.join(__dirname, "../views/upload.html"));
   });

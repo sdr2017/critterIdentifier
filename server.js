@@ -20,12 +20,15 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Static directory
-app.use(express.static("public"));
+//app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, 'views')));
 
 // Routes
 // =============================================================
 require("./routing/api-routes.js")(app);
 require("./routing/html-routes.js")(app);
+require('./routing/db-route.js')(app);
+// require('./views/assets/js/upload.js')(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
@@ -100,4 +103,3 @@ app.post('/upload', function(req, res) {
 	});
 });
 
-// End of S3 Clients
