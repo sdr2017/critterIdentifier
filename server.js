@@ -115,6 +115,7 @@ db.sequelize.sync().then(function() {
 
 
 require('./routing/html-routes')(app);
+/*
 
 db.sequelize.sync({force: true}).then(function(){
 	var user = db.user.build({
@@ -141,5 +142,6 @@ db.sequelize.sync({force: true}).then(function(){
 		});
 	});
 });
+*/
 
 
