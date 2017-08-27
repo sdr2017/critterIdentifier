@@ -1,6 +1,12 @@
 $(document).ready(function(){
 
   var emailInput = $("#inputEmail");
+  var critterZipCode = $("#zipCode");
+  var critterColor = $("#critterColor");
+  var critterSize = $("#critterSize");
+  var critterHairy = $("#critterHairy");
+  var critterWeb = $("#critterWeb");
+  var critterName = $("#critterName");
 
   $(document).on("submit", "#spiderForm", handleSpiderFormSubmit);
 
@@ -14,13 +20,33 @@ $(document).ready(function(){
       email: emailInput
       .val()
       .trim()
+    }),
+
+    insertSpider({
+      name: critterName
+      .val()
+      .trim(),
+      zipCode: critterZipCode
+      .val()
+      .trim(),
+      size: critterSize,
+      color: critterColor,
+      hairy: critterHairy,
+      web: critterWeb,
+      link: critterJpg
     });
   }
 
   function insertUser(userData) {
     $.post("/api/users", userData)
   };
+
+  function insertSpider(spiderData) {
+    $.post("/api/spiders", spiderData)
+  };
+
 });
+
 
 
 
