@@ -15,13 +15,29 @@ module.exports = function(app) {
     // Here we add an "include" property to our options in our findAll query
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Post
-    db.user.findAll({
-      include: [db.spider]
+    db.User.findAll({
+      include: [db.Spider]
     }).then(function(dbUser) {
       res.json(dbUser);
     });
   });
 
+  app.get("/api/users/:id", function(req, res) {
+    db.User.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [db.Spider]
+    }).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
+
+  app.post("/api/users", function(req, res) {
+    db.User.create(req.body).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
 
 
   // GET route for getting all of the posts
@@ -35,12 +51,13 @@ module.exports = function(app) {
     // In this case, just db.Author
     db.spider.findAll({
       where: query,
-      include: [db.user]
+      include: [db.User]
     }).then(function(dbSpider) {
       res.json(dbSpider);
     });
   });
 
+};
 
 /*
   // GET route for getting all of the posts
@@ -61,4 +78,4 @@ module.exports = function(app) {
   });
 */
 
-}
+// }
