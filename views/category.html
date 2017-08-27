@@ -162,6 +162,7 @@
                 <div id="photoImage">
                   <a href="https://placeholder.com"><img src="http://via.placeholder.com/300x300"></a>
                 </div>
+
                 <div id="spiderInfo">
                   <ul>
                     <li id="spiderColor">Color:</li>
@@ -178,6 +179,29 @@
                   </div>
                 </div>
                 <br>
+
+<!-- Comment Box -->
+				<div class="detailBox">
+    				<div class="actionBox">
+        				<ul class="commentList">
+            				<li>
+                				<div class="commenterImage"></div>
+                				<div class="commentText">
+									<span class="date"></span>
+                				</div>
+            				</li>
+        				</ul>
+        				<form class="form-inline" role="form">
+            				<div class="form-group">
+                				<input class="form-control userComment" type="text" placeholder="Do you have something to say about this critter? Type your comment below:" />
+            				</div>
+            				<div class="form-group">
+                				<button class="btn btn-default commentButton">Add</button>
+            				</div>
+        				</form>
+    				</div>
+				</div>
+
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
@@ -203,6 +227,17 @@
 
     <!-- AutoComplete -->
     <script>
+
+      $(".image").on("click", function(){
+        $("#crittersModal").modal("show");
+      })
+      
+// comment box
+      $(".commentButton").on("click", function(){
+      	event.preventDefault();
+      	$(".commentText").text(".userComment").val();
+      })
+
     $( document ).ready(function() {
       $( ".form-control" ).autocomplete({
         source: [ "brown recluse", "black widow", "hobo spider", "funnel web grass spider", "mouse spider",
@@ -211,6 +246,7 @@
         "fishing spider", "jumping spider", "flower spider", "parson spider", "green lynx spider", "daddy long legs"  ]
       });
     });
+
     </script>
 
 
