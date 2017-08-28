@@ -1,7 +1,7 @@
 body{
 	margin: 0px;
 	padding: 0px;
-	background-color: #efefef;
+	background-color: #f6f6f6;
 }
 
 .container-fluid{
@@ -57,9 +57,12 @@ a:hover{
 }
 
 #refineSearch{
-	height: 80px;
-	background-color: #efefef;
-	padding: 20px;
+	height: auto;
+	margin: 30px;
+}
+
+.refining{
+	margin: 0px;
 }
 
 
@@ -69,13 +72,79 @@ a:hover{
 	display: inline-block;
 }
 
+/*IMAGES TO PULL FROM SERVER*/
+
 .photoSpot {
+	text-align: center;
 	height: 250px;
-	border-style: solid;
+	/*border-style: solid;
 	border-width: 1px;
 	border-radius: 5px;
-	border-color: #c4c4c4;
+	border-color: #c4c4c4;*/
+	padding: 25px 25px 25px 25px;
 }
+
+
+.image {
+	position: relative;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	border: 1px #c4c4c4 solid;
+	border-radius: 5px;
+}
+
+.links {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	line-height: 30px;
+	background-color: #ffffff;
+	border-radius: 0px 0px 5px 5px;
+	font-family: 'Montserrat', sans-serif;
+	color: #6d6d6d;
+}
+
+
+#id1{
+	width: 100%;
+	height: 100%;	
+	background-image: url(http://i3.mirror.co.uk/incoming/article11010615.ece/ALTERNATES/s615b/Jumping-spider.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#id2{
+	width: 100%;
+	height: 100%;	
+	background-image: url(http://news.nationalgeographic.com/content/dam/news/2017/04/12/new-spider-species/01-new-spider-species.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+
+#id3{
+	width: 100%;
+	height: 100%;	
+	background-image: url(https://www.thesun.co.uk/wp-content/uploads/2016/08/nintchdbpict000111735180.jpg?strip=all&w=960);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#id4{
+	width: 100%;
+	height: 100%;	
+	background-image: url(http://animals.sandiegozoo.org/sites/default/files/2016-08/animals_hero_spider_web.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/*END IMAGES TO PULL FROM SERVER*/
+
 
 .modalStyle {
   position: fixed;
@@ -146,6 +215,105 @@ a:hover{
     border-top:1px dotted #bbb;
     padding:10px;
 }
+
+/*Parallax*/
+
+/* front */
+#parallax-1 {
+	z-index: -1;
+	position: fixed;
+	left: 50%; /* align left edge with center of viewport */
+	top: 0;
+	width: 940px;
+	margin-left: -470px; /* move left by half element's width */
+	}
+	/* balloon */
+	#bg3-1 {
+		position: absolute;
+		top: -111px;
+		left: 355px;
+		}
+	#bg3-2 {
+		position: absolute;
+		top: 812px;
+		left: 321px;
+		}
+	#bg3-3 {
+		position: absolute;
+		top: 1628px;
+		left: 403px;
+		}
+	#bg3-4 {
+		position: absolute;
+		top: 2700px;
+		left: -85px;
+		}
+/* middle */
+#parallax-2 {
+	z-index: -2;
+	position: fixed;
+	left: 50%; /* align left edge with center of viewport */
+	top: 0;
+	width: 1200px;
+	margin-left: -600px; /* move left by half element's width */
+	}
+	#bg2-1 {
+		position: absolute;
+		top: 162px;
+		left: 200px;
+		}
+	#bg2-2 {
+		position: absolute;
+		top: 300px;
+		left: 1150px;
+		}
+	#bg2-3 {
+		position: absolute;
+		top: 543px;
+		left: -35px;
+		}
+	#bg2-4 {
+		position: absolute;
+		top: 1180px;
+		left: 250px;
+		}
+	#bg2-5 {
+		position: absolute;
+		top: 900px;
+		left: 890px;
+		}
+/* back */
+#parallax-3 {
+	z-index: -3;
+	position: fixed;
+	left: 50%; /* align left edge with center of viewport */
+	top: 0;
+	width: 1200px;
+	margin-left: -600px; /* move left by half element's width */
+	}
+	#bg1-1 {
+		position: absolute;
+		top: 85px;
+		left: -270px;
+		}
+	#bg1-2 {
+		position: absolute;
+		top: 440px;
+		left: 795px;
+		}
+	#bg1-3 {
+		position: absolute;
+		top: 900px;
+		left: -220px;
+		}
+	#bg1-4 {
+		position: absolute;
+		top: 1020px;
+		left: 450px;
+		}
+
+/*Parallax*/
+
 
 @media screen and (max-width: 575px) and (min-width: 0px) {
 
