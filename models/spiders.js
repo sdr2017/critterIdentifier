@@ -1,9 +1,9 @@
 module.exports = function(sequelize, DataTypes){
 
-	var Spider = sequelize.define("spider", {
+	var Spider = sequelize.define("Spider", {
 
 	//UserId: DataTypes.INTEGER,
-	
+
 	identified: {
     type: DataTypes.BOOLEAN,
     default: false
@@ -34,9 +34,8 @@ module.exports = function(sequelize, DataTypes){
 
 }, { paranoid:true });
 
-
 	Spider.associate = function(models) {
-    	Spider.belongsTo(models.user, {
+    	Spider.belongsTo(models.User, {
 			foreignKey: {
 			allowNull: false
       }
