@@ -25,12 +25,20 @@ $(document).ready(function() {
   	.then(function(json) 
 	{
 		var spiders = json;
+		var identified = []
+
+		for (var index = 0; index < spiders.length; index++)
+		{
+			if(spiders[index].identified !== true){
+				identified.push(spiders[index]);
+			} 
+		};
+		console.log(identified);
 
 		var row = getRow();
-		for(var index = 0; index < spiders.length; index++)
+		for(var index = 0; index < identified.length; index++)
 		{
 
-			//if(spiders[index].identified === false){
 				var divContainer = $("<div>");
 				$(divContainer).addClass('col-sm-12 col-md-3 col-lg-3 photoSpot');
 
@@ -38,26 +46,26 @@ $(document).ready(function() {
 				$(divImage).addClass('image');
 				$(divImage).css('width', '100%');
 				$(divImage).css('height', '100%');
-				$(divImage).css('background-image', 'url('+ spiders[index].link + ')');
+				$(divImage).css('background-image', 'url('+ identified[index].link + ')');
 				$(divImage).css('background-position', 'center');
 				$(divImage).css('background-repeat', 'no-repeat');
 				$(divImage).css('background-size', 'cover');
 
 				var paragraphName = $('<p>');
 				$(paragraphName).addClass('links');
-				$(paragraphName).html(spiders[index].name);
+				$(paragraphName).html("unidentified");
 
 				$(divImage).append(paragraphName);
 				$(divContainer).append(divImage);
 
 				$(row).append(divContainer);
 
-				if(index + 1 == spiders.length || (index + 1 % 4 == 0))
+				if(index + 1 == identified.length || (index + 1 % 4 == 0))
 				{
 					$('#critters').append(row);
 					row = getRow();
 				}
-			//}
+			
 		}
 	})
   	.catch(function(error)
