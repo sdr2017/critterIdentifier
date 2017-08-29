@@ -4,20 +4,20 @@ $(document).ready(function() {
       })
 });
 
-// comment box
+// // comment box
       $(".commentButton").on("click", function(){
       	event.preventDefault();
-      	$(".commentText").text(".userComment").val();
+      	alert("button Pressed!")
+            var userComment = $(".userComment").val();
+      	$(".commentText").text(userComment);
+            $(".userComment").val("");
       });
-
-
 
 /* Scroll event handler */
     $(window).bind('scroll',function(e){
     	parallaxScroll();
     });
     
-
 /* Parallax Scroll */
 function parallaxScroll(){
 	var scrolled = $(window).scrollTop();
