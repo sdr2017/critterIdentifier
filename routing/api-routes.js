@@ -34,6 +34,7 @@ module.exports = function(app) {
   });
 
   app.post("/api/users", function(req, res) {
+
     db.User.create(req.body).then(function(dbUser) {
       res.json(dbUser);
     });
@@ -51,6 +52,7 @@ module.exports = function(app) {
     // In this case, just db.Author
     db.Spider.findAll({
       where: query,
+      order: [['id', 'ASC']],
       include: [db.User]
     }).then(function(dbSpider) {
       res.json(dbSpider);

@@ -8,7 +8,7 @@ var s3 = require('s3');
 var keys = require('./keys.js');
 
 var app = express();
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3000;
 
 // Requiring our models for syncing
 var db = require("./models");
@@ -31,11 +31,6 @@ require("./routing/html-routes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-  });
-});
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
@@ -99,8 +94,16 @@ app.post('/upload', function(req, res) {
 			res.status(500).send(err.stack);
 		});
 		uploader.on('end', function() {
+
+			console.log(req.body);
 			console.log("done uploading");
 			res.send('File uploaded!');
 		});
 	});
+});
+
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function(error) {
+    console.log("App listening on PORT " + PORT);
+  });
 });

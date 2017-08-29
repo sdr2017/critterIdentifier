@@ -20,7 +20,7 @@ $(document).ready(function() {
   // Gets the part of the url that comes after the "?" (which we have if we're updating a post)
 
   var url = window.location.search;
-  var inputSubmitter = emailInput.val().trim();
+  var inputSubmitter = $(email).val().trim();
 
   // Sets a flag for whether or not we're updating a post to be false initially
 
@@ -82,5 +82,13 @@ $(document).ready(function() {
       window.location.href = "/";
 
   }
+
+  /* Parallax Scroll */
+function parallaxScroll(){
+  var scrolled = $(window).scrollTop();
+  $('#parallax-3').css('top',(0-(scrolled*.25))+'px');
+  $('#parallax-2').css('top',(0-(scrolled*.5))+'px');
+  $('#parallax-1').css('top',(0-(scrolled*.75))+'px');
+}
 
 });
