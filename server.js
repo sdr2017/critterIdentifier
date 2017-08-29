@@ -72,7 +72,8 @@ app.post('/upload', function(req, res) {
 	var critterUpload = req.files.critterUpload;
 	var timeInMs = Date.now();
 	var critterJpg = timeInMs + req.files.critterUpload.name;
-	console.log(critterJpg);
+  var critterImage = "https://s3-us-west-2.amazonaws.com/critterbucket/" + timeInMs + req.files.critterUpload.name;
+  console.log(critterJpg);
 
   var email = req.body.email;
   var critterName = req.body.critterName;
@@ -99,6 +100,9 @@ app.post('/upload', function(req, res) {
 				Key: critterJpg, // File path of location on S3
 			},
 		};
+
+    console.log(params);
+
 		var uploader = client.uploadFile(params);
 		uploader.on('error', function(err) {
 			console.error("unable to upload:", err.stack);
@@ -118,7 +122,7 @@ app.post('/upload', function(req, res) {
       			color: critterColor,
       			hairy: critterHairy,
       			web: critterWeb,
-      			link: critterJpg
+      			link: critterImage
       		})
       		.then(function() {
       			console.log("We made a thing!");

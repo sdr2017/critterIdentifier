@@ -52,7 +52,7 @@ module.exports = function(app) {
     // In this case, just db.Author
     db.Spider.findAll({
       where: query,
-      // order: [['id', 'ASC']],
+      order: [['id', 'ASC']],
       include: [db.User]
     }).then(function(dbSpider) {
       res.json(dbSpider);
