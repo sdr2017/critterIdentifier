@@ -12,7 +12,8 @@ db.sequelize.sync({force: true}).then(function(){
 			size: "Large",
 			color: "black",
 			hairy: true,
-			web: true
+			web: true,
+			comment: "Test Comment"
 		})
 		.then(function() {
 			console.log("We made a thing!");
