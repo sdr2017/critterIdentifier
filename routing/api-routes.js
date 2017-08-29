@@ -52,12 +52,29 @@ module.exports = function(app) {
     // In this case, just db.Author
     db.Spider.findAll({
       where: query,
-      order: [['id', 'ASC']],
+      // order: [['id', 'ASC']],
       include: [db.User]
     }).then(function(dbSpider) {
       res.json(dbSpider);
     });
   });
+
+  app.get("/api/spiders/:id", function(req, res) {
+    db.Spider.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [db.User]
+    }).then(function(dbSpider) {
+      res.json(dbSpider);
+    });
+  });
+
+  app.post("api/spiders", function(req, res) {
+    db.Spider.create(req.body).then(function(dbSpider) {
+      res.json(dbSpider);
+  });
+});
 
 };
 

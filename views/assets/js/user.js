@@ -32,9 +32,10 @@ $(document).ready(function(){
       size: critterSize,
       color: critterColor,
       hairy: critterHairy,
-      web: critterWeb,
-      link: critterJpg
+      web: critterWeb
+      // link: critterJpg
     });
+
   }
 
   function insertUser(userData) {
@@ -44,7 +45,6 @@ $(document).ready(function(){
   function insertSpider(spiderData) {
     $.post("/api/spiders", spiderData)
   };
-
 });
 
 

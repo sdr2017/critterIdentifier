@@ -31,7 +31,11 @@ require("./routing/html-routes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function(error) {
+    console.log("App listening on PORT " + PORT);
+  });
+});
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
 debugger;
@@ -54,6 +58,7 @@ app.use(fileUpload());
 
 app.get('/upload', function(req, res) {
 	res.sendFile(path.join(__dirname, '/views', 'upload.html'));
+  console.log(req.body);
 });
 
 app.post('/upload', function(req, res) {
@@ -61,7 +66,6 @@ app.post('/upload', function(req, res) {
 		console.log(req.files);
 		return res.status(400).send('No files were uploaded.');
 	}
-
 // Critter Upload using S3 client
 
 	// The name of the input field (i.e. "critterUpload") is used to retrieve the uploaded file
@@ -71,7 +75,14 @@ app.post('/upload', function(req, res) {
 	console.log(critterJpg);
 
   var email = req.body.email;
-  var spiderName = req.body.spider;
+  var critterName = req.body.critterName;
+  var zipCode = req.body.zip;
+  var critterSize = req.body.size;
+  var critterColor = req.body.color;
+  var critterHairy = req.body.hairy;
+  var critterWeb = req.body.web;
+
+  // var emailInput = $('#inputEmail');
 
 	// Use the mv() method to place the file somewhere on your server
 	critterUpload.mv('uploads/' + critterJpg, function(err) {
@@ -95,15 +106,27 @@ app.post('/upload', function(req, res) {
 		});
 		uploader.on('end', function() {
 
-			console.log(req.body);
+      	User = db.User.build({
+      		email: email
+      	});
+      	User.save()
+      	.then(function() {
+      		User.createSpider({
+      			name: critterName,
+      			zipCode: zipCode,
+      			size: critterSize,
+      			color: critterColor,
+      			hairy: critterHairy,
+      			web: critterWeb,
+      			link: critterJpg
+      		})
+      		.then(function() {
+      			console.log("We made a thing!");
+      		});
+      	});
+      });
+
 			console.log("done uploading");
 			res.send('File uploaded!');
 		});
 	});
-});
-
-db.sequelize.sync().then(function() {
-  app.listen(PORT, function(error) {
-    console.log("App listening on PORT " + PORT);
-  });
-});
