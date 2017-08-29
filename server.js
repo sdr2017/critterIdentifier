@@ -96,6 +96,8 @@ app.post('/upload', function(req, res) {
 			res.status(500).send(err.stack);
 		});
 		uploader.on('end', function() {
+			
+			console.log(req.body);
 			console.log("done uploading");
 			res.send('File uploaded!');
 		});
