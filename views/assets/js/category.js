@@ -7,9 +7,8 @@ $(document).ready(function() {
 // // comment box
       $(".commentButton").on("click", function(){
       	event.preventDefault();
-      	alert("button Pressed!")
             var userComment = $(".userComment").val();
-      	$(".commentText").text(userComment);
+      	$(".commentText").append("<div class='commentText'>" + userComment + "</div>");
             $(".userComment").val("");
       });
 
