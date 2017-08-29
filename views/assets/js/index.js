@@ -34,31 +34,34 @@ $(document).ready(function() {
 		var row = getRow();
 		for(var index = 0; index < spiders.length; index++)
 		{
-			var divContainer = $("<div>");
-			$(divContainer).addClass('col-sm-12 col-md-3 col-lg-3 photoSpot');
 
-			var divImage = $('<div>');
-			$(divImage).addClass('image');
-			$(divImage).css('width', '100%');
-			$(divImage).css('height', '100%');
-			$(divImage).css('background-image', 'url('+ spiders[index].link + ')');
-			$(divImage).css('background-position', 'center');
-			$(divImage).css('background-repeat', 'no-repeat');
-			$(divImage).css('background-size', 'cover');
+			if(spiders[index].identified === false){
+				var divContainer = $("<div>");
+				$(divContainer).addClass('col-sm-12 col-md-3 col-lg-3 photoSpot');
 
-			var paragraphName = $('<p>');
-			$(paragraphName).addClass('links');
-			$(paragraphName).html(spiders[index].name);
+				var divImage = $('<div>');
+				$(divImage).addClass('image');
+				$(divImage).css('width', '100%');
+				$(divImage).css('height', '100%');
+				$(divImage).css('background-image', 'url('+ spiders[index].link + ')');
+				$(divImage).css('background-position', 'center');
+				$(divImage).css('background-repeat', 'no-repeat');
+				$(divImage).css('background-size', 'cover');
 
-			$(divImage).append(paragraphName);
-			$(divContainer).append(divImage);
+				var paragraphName = $('<p>');
+				$(paragraphName).addClass('links');
+				$(paragraphName).html(spiders[index].name);
 
-			$(row).append(divContainer);
+				$(divImage).append(paragraphName);
+				$(divContainer).append(divImage);
 
-			if(index + 1 == spiders.length || (index + 1 % 4 == 0))
-			{
-				$('#critters').append(row);
-				row = getRow();
+				$(row).append(divContainer);
+
+				if(index + 1 == spiders.length || (index + 1 % 4 == 0))
+				{
+					$('#critters').append(row);
+					row = getRow();
+				}
 			}
 		}
 	})
