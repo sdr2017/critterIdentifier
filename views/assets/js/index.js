@@ -1,15 +1,22 @@
 $(document).ready(function() {
-	var dir = "../../../uploads";
-	var fileextension = ".jpg";
-	$.ajax({
-	    //This will retrieve the contents of the folder
-	    url: dir,
-	    success: function (data) {
-	        //List all .jpg file names in the page
-	        $(data).find("a:contains(" + fileextension + ")").each(function () {
-	            // var filename = this.href.replace(window.location.host, "").replace("http://", "");
-	            $("body").append("<img src='" + dir + filename + "'>");
-	        });
-	    }
-	});
+	$.get("/api/users", function(data) {
+
+  	if (data.length !== 0) {
+
+    for (var i = 0; i < 20; i++) {
+
+      var row = $("<div>");
+      row.addClass("chirp");
+
+      row.append("<p>" + data[i].author + " chirped.. </p>");
+      row.append("<p>" + data[i].body + "</p>");
+      row.append("<p>At " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
+
+      $("#chirp-area").prepend(row);
+
+    }
+
+  };
+
+});
 });
