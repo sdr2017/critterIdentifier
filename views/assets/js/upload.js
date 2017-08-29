@@ -30,7 +30,7 @@ $(document).ready(function() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    console.log('User ' + inputSubmitter + ' has pushed information into the databse!');
+    console.log('User ' + inputSubmitter + ' has pushed information into the database!');
 
     // Form will not be submitted if any of the entries are blank
 
