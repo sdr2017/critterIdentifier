@@ -75,6 +75,9 @@ app.post('/upload', function(req, res) {
 	var critterJpg = timeInMs + req.files.critterUpload.name;
 	console.log(critterJpg);
 
+  var email = req.body.email;
+  var spiderName = req.body.spider;
+
 	// Use the mv() method to place the file somewhere on your server
 	critterUpload.mv('uploads/' + critterJpg, function(err) {
 		if (err) {
