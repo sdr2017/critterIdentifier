@@ -6,13 +6,36 @@ var path = require('path');
 var fileUpload = require('express-fileupload');
 var s3 = require('s3');
 var keys = require('./keys.js');
-var db = require("./models");
-
-var PORT = process.env.PORT || 8080;
 
 var app = express();
+var PORT = process.env.PORT || 8080;
 
+// Requiring our models for syncing
+var db = require("./models");
+
+// Sets up the Express app to handle data parsing
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+// Static directory
+//app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, 'views')));
+
+// Routes
+// =============================================================
+require("./routing/api-routes.js")(app);
 require("./routing/html-routes.js")(app);
+// require('./views/assets/js/upload.js')(app);
+
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
+});
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
@@ -75,35 +98,6 @@ app.post('/upload', function(req, res) {
 		uploader.on('end', function() {
 			console.log("done uploading");
 			res.send('File uploaded!');
-		});
-	});
-});
-
-// End of S3 Client
-
-require('./routing/html-routes')(app);
-
-db.sequelize.sync({force: true}).then(function(){
-	var user = db.user.build({
-		email: "foo@bar.com"
-	});
-	user.save()
-	.then(function() {
-		user.createSpider({
-			identified: false,
-			name: "mr. spider",
-			dangerous: true,
-			zipCode: 80303,
-			size: "Large",
-			color: "black",
-			hairy: true,
-			web: true
-		})
-		.then(function() {
-			console.log("We made a thing!");
-			app.listen(PORT, function() {
-				console.log("Listening on port %s", PORT);
-			});
 		});
 	});
 });

@@ -13,18 +13,15 @@ $(document).ready(function() {
             $(".userComment").val("");
       });
 
-// comment box
-      // $(".commentButton").on("click", function(){
-      // 	event.preventDefault();
-
-      // 	var newComment = {
-      // 		comment: $(".userComment").val();
-      // 	};
-
-      // 	$.post(".commentText", newComment)
-      // 	.done(function(data){
-      // 		console.log(data);
-      // 	});
-
-      // 	$(".userComment").val("");
-      // });
+/* Scroll event handler */
+    $(window).bind('scroll',function(e){
+    	parallaxScroll();
+    });
+    
+/* Parallax Scroll */
+function parallaxScroll(){
+	var scrolled = $(window).scrollTop();
+	$('#parallax-3').css('top',(0-(scrolled*.25))+'px');
+	$('#parallax-2').css('top',(0-(scrolled*.5))+'px');
+	$('#parallax-1').css('top',(0-(scrolled*.75))+'px');
+}
