@@ -6,6 +6,7 @@ $(document).ready(function(){
   var critterHairy = $("#critterHairy");
   var critterWeb = $("#critterWeb");
   var critterName = $("#critterName");
+  // var critterJpg = $("#imageFile");
 
   $(document).on("submit", "#spiderForm", handleSpiderFormSubmit);
 
@@ -16,18 +17,21 @@ $(document).ready(function(){
     }
 
     insertSpider({
-      name: critterName.val().trim(),
-      zipCode: critterZipCode.val().trim(),
+      name: critterName
+      .val()
+      .trim(),
+      zipCode: critterZipCode
+      .val()
+      .trim(),
       size: critterSize,
       color: critterColor,
       hairy: critterHairy,
-      web: critterWeb,
-      link: critterJpg
+      web: critterWeb
+      // link: critterJpg
     });
-  }
+  };
 
   function insertSpider(spiderData) {
     $.post("/api/spiders", spiderData)
   };
-
 });
