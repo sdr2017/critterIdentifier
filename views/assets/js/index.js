@@ -13,53 +13,59 @@
 // 	    }
 // 	});
 
-// 	/* Parallax Scroll */
-// function parallaxScroll(){
-// 	var scrolled = $(window).scrollTop();
-// 	$('#parallax-3').css('top',(0-(scrolled*.25))+'px');
-// 	$('#parallax-2').css('top',(0-(scrolled*.5))+'px');
-// 	$('#parallax-1').css('top',(0-(scrolled*.75))+'px');
-// }
-
 // });
 $(document).ready(function() {
+
+	console.log("ready!");
 	fetch('./api/spiders').then(function(response)
 	{
 		return response.json();
+		console.log("connecting with api");
   	})
   	.then(function(json) 
 	{
 		var spiders = json;
+		var identified = []
+
+		for (var index = 0; index < spiders.length; index++)
+		{
+			if(spiders[index].identified !== true){
+				identified.push(spiders[index]);
+			} 
+		};
+		console.log(identified);
 
 		var row = getRow();
-		for(var index = 0; index < spiders.length; index++)
+		for(var index = 0; index < identified.length; index++)
 		{
-			var divContainer = $("<div>");
-			$(divContainer).addClass('col-sm-12 col-md-3 col-lg-3 photoSpot');
 
-			var divImage = $('<div>');
-			$(divImage).addClass('image');
-			$(divImage).css('width', '100%');
-			$(divImage).css('height', '100%');
-			$(divImage).css('background-image', 'url('+ spiders[index].link + ')');
-			$(divImage).css('background-position', 'center');
-			$(divImage).css('background-repeat', 'no-repeat');
-			$(divImage).css('background-size', 'cover');
+				var divContainer = $("<div>");
+				$(divContainer).addClass('col-sm-12 col-md-3 col-lg-3 photoSpot');
 
-			var paragraphName = $('<p>');
-			$(paragraphName).addClass('links');
-			$(paragraphName).html(spiders[index].name);
+				var divImage = $('<div>');
+				$(divImage).addClass('image');
+				$(divImage).css('width', '100%');
+				$(divImage).css('height', '100%');
+				$(divImage).css('background-image', 'url('+ identified[index].link + ')');
+				$(divImage).css('background-position', 'center');
+				$(divImage).css('background-repeat', 'no-repeat');
+				$(divImage).css('background-size', 'cover');
 
-			$(divImage).append(paragraphName);
-			$(divContainer).append(divImage);
+				var paragraphName = $('<p>');
+				$(paragraphName).addClass('links');
+				$(paragraphName).html("unidentified");
 
-			$(row).append(divContainer);
+				$(divImage).append(paragraphName);
+				$(divContainer).append(divImage);
 
-			if(index + 1 == spiders.length || (index + 1 % 4 == 0))
-			{
-				$('#critters').append(row);
-				row = getRow();
-			}
+				$(row).append(divContainer);
+
+				if(index + 1 == identified.length || (index + 1 % 4 == 0))
+				{
+					$('#critters').append(row);
+					row = getRow();
+				}
+			
 		}
 	})
   	.catch(function(error)
@@ -68,29 +74,21 @@ $(document).ready(function() {
   	});
 
 
-
-	// <div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-	// 	 				<div class="image" id="id1"><p class="links">Category A
-	// 	 				</p></div>
-	// 	 			</div>
-	// 	 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-	// 	 				<div class="image" id="id2"><p class="links">Category B
-	// 	 				</p></div>
-	// 	 			</div>
-	// 	 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-	// 	 				<div class="image" id="id3"><p class="links">Category C
-	// 	 				</p></div>
-	// 	 			</div>
-	// 	 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-	// 	 				<div class="image" id="id4"><p class="links"><p class="links">Category D
-	// 	 				</p></div>
-	// 	 			</div>
- //  				</div>
-});
-
-function getRow()
-{
+  	function getRow()
+	{
 	var containerDiv = $('<div>');
 	$(containerDiv).addClass('row');
 	return containerDiv;
+	}
+
+
+	/* Parallax Scroll */
+	function parallaxScroll(){
+	var scrolled = $(window).scrollTop();
+	$('#parallax-3').css('top',(0-(scrolled*.25))+'px');
+	$('#parallax-2').css('top',(0-(scrolled*.5))+'px');
+	$('#parallax-1').css('top',(0-(scrolled*.75))+'px');
 }
+
+});
+

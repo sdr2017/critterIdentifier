@@ -8,7 +8,7 @@ var s3 = require('s3');
 var keys = require('./keys.js');
 
 var app = express();
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3000;
 
 // Requiring our models for syncing
 var db = require("./models");
@@ -32,11 +32,10 @@ require("./routing/html-routes.js")(app);
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
+  app.listen(PORT, function(error) {
     console.log("App listening on PORT " + PORT);
   });
 });
-
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
 debugger;
@@ -59,6 +58,7 @@ app.use(fileUpload());
 
 app.get('/upload', function(req, res) {
 	res.sendFile(path.join(__dirname, '/views', 'upload.html'));
+  console.log(req.body);
 });
 
 app.post('/upload', function(req, res) {
@@ -66,14 +66,24 @@ app.post('/upload', function(req, res) {
 		console.log(req.files);
 		return res.status(400).send('No files were uploaded.');
 	}
-
 // Critter Upload using S3 client
 
 	// The name of the input field (i.e. "critterUpload") is used to retrieve the uploaded file
 	var critterUpload = req.files.critterUpload;
 	var timeInMs = Date.now();
 	var critterJpg = timeInMs + req.files.critterUpload.name;
-	console.log(critterJpg);
+  var critterImage = "https://s3-us-west-2.amazonaws.com/critterbucket/" + timeInMs + req.files.critterUpload.name;
+  console.log(critterJpg);
+
+  var email = req.body.email;
+  var critterName = req.body.critterName;
+  var zipCode = req.body.zip;
+  var critterSize = req.body.size;
+  var critterColor = req.body.color;
+  var critterHairy = req.body.hairy;
+  var critterWeb = req.body.web;
+
+  // var emailInput = $('#inputEmail');
 
 	// Use the mv() method to place the file somewhere on your server
 	critterUpload.mv('uploads/' + critterJpg, function(err) {
@@ -90,16 +100,37 @@ app.post('/upload', function(req, res) {
 				Key: critterJpg, // File path of location on S3
 			},
 		};
+
+    console.log(params);
+
 		var uploader = client.uploadFile(params);
 		uploader.on('error', function(err) {
 			console.error("unable to upload:", err.stack);
 			res.status(500).send(err.stack);
 		});
 		uploader.on('end', function() {
-			
-			console.log(req.body);
+
+      	User = db.User.build({
+      		email: email
+      	});
+      	User.save()
+      	.then(function() {
+      		User.createSpider({
+      			name: critterName,
+      			zipCode: zipCode,
+      			size: critterSize,
+      			color: critterColor,
+      			hairy: critterHairy,
+      			web: critterWeb,
+      			link: critterImage
+      		})
+      		.then(function() {
+      			console.log("We made a thing!");
+      		});
+      	});
+      });
+
 			console.log("done uploading");
 			res.send('File uploaded!');
 		});
 	});
-});
