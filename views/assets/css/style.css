@@ -106,44 +106,6 @@ a:hover{
 	margin: 0px;
 }
 
-
-#id1{
-	width: 100%;
-	height: 100%;	
-	background-image: url(http://i3.mirror.co.uk/incoming/article11010615.ece/ALTERNATES/s615b/Jumping-spider.jpg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-#id2{
-	width: 100%;
-	height: 100%;	
-	background-image: url(http://news.nationalgeographic.com/content/dam/news/2017/04/12/new-spider-species/01-new-spider-species.jpg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-
-#id3{
-	width: 100%;
-	height: 100%;	
-	background-image: url(https://www.thesun.co.uk/wp-content/uploads/2016/08/nintchdbpict000111735180.jpg?strip=all&w=960);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-#id4{
-	width: 100%;
-	height: 100%;	
-	background-image: url(http://animals.sandiegozoo.org/sites/default/files/2016-08/animals_hero_spider_web.jpg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
 /*END IMAGES TO PULL FROM SERVER*/
 
 
@@ -161,6 +123,12 @@ a:hover{
 .modal-dialog {
 	left: -25%;
 	max-width: 35%;
+}
+
+#photoImage {
+	width: 50%;
+	height: auto;
+	border-radius: 5px;
 }
 
 /*Comment Box*/
@@ -281,7 +249,7 @@ a:hover{
 	#bg2-5 {
 		position: absolute;
 		top: 900px;
-		left: 890px;
+		left: 590px;
 		}
 /* back */
 #parallax-3 {

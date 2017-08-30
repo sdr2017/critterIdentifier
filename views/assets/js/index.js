@@ -1,28 +1,19 @@
-// $(document).ready(function() {
-// 	var dir = "../../../uploads";
-// 	var fileextension = ".jpg";
-// 	$.ajax({
-// 	    //This will retrieve the contents of the folder
-// 	    url: dir,
-// 	    success: function (data) {
-// 	        //List all .jpg file names in the page
-// 	        $(data).find("a:contains(" + fileextension + ")").each(function () {
-// 	            // var filename = this.href.replace(window.location.host, "").replace("http://", "");
-// 	            $("body").append("<img src='" + dir + filename + "'>");
-// 	        });
-// 	    }
-// 	});
-
-// });
 $(document).ready(function() {
 
+	//MODAL
+	$(document).on('click','.image',function(){
+		$("#crittersModal").modal("show");
+    });
+
 	console.log("ready!");
+
+	//POPULATE HTML FROM DATABASE
 	fetch('./api/spiders').then(function(response)
 	{
 		return response.json();
 		console.log("connecting with api");
   	})
-  	.then(function(json) 
+  	.then(function(json)
 	{
 		var spiders = json;
 		var identified = []
@@ -31,7 +22,7 @@ $(document).ready(function() {
 		{
 			if(spiders[index].identified !== true){
 				identified.push(spiders[index]);
-			} 
+			}
 		};
 		console.log(identified);
 
@@ -65,12 +56,12 @@ $(document).ready(function() {
 					$('#critters').append(row);
 					row = getRow();
 				}
-			
+
 		}
 	})
   	.catch(function(error)
-  	{ 
-  		console.log(error); 
+  	{
+  		console.log(error);
   	});
 
 
@@ -82,7 +73,21 @@ $(document).ready(function() {
 	}
 
 
-	/* Parallax Scroll */
+	// // comment box
+      $(".commentButton").on("click", function(){
+      	event.preventDefault();
+            var userComment = $(".userComment").val();
+      	$(".commentText").append("<div class='commentText'>" + userComment + "</div>");
+            $(".userComment").val("");
+      });
+
+
+	/* Scroll event handler */
+    $(window).bind('scroll',function(e){
+    	parallaxScroll();
+    });
+
+	//PARALLAX SCROLLING
 	function parallaxScroll(){
 	var scrolled = $(window).scrollTop();
 	$('#parallax-3').css('top',(0-(scrolled*.25))+'px');
@@ -91,4 +96,3 @@ $(document).ready(function() {
 }
 
 });
-

@@ -11,7 +11,7 @@
 
 <!-- JQuery Style Sheet -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
+
 <!-- Reset Style Sheet -->
 			<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 
@@ -43,6 +43,68 @@
 <!--PLACEHOLDER IMAGES-->
 				<div id="critters"></div>
 
+<!-- Modal -->
+        <div class="modal fade modalStyle" id="crittersModal" tabindex="-1" role="dialog" aria-labelledby="crittersModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="critterModalLabel">Name:</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                <div id="photoImage"></div>
+
+                <div id="spiderInfo">
+                  <ul>
+                    <li id="spiderColor">Color:</li>
+                    <li id="spiderSize">Size:</li>
+                    <li id="spiderWeb">Web:</li>
+                  </ul>
+                </div>
+                <div class="col-lg-12">
+                  <div class="input-group" id="nameInput">
+                    <input type="text" class="form-control" placeholder="Submit a Name for this Critter">
+                    <span class="input-group-btn">
+                      <button class="btn btn-secondary" type="submit" id="submitSearch">Submit</button>
+                    </span>
+                  </div>
+                </div>
+                <br>
+
+<!-- Comment Box -->
+				<div class="detailBox">
+    				<div class="actionBox">
+        				<ul class="commentList">
+            				<li>
+                				<div class="commenterImage"></div>
+                				<div class="commentText">
+									<span class="date"></span>
+                				</div>
+            				</li>
+        				</ul>
+        				<form class="form-inline" role="form">
+            				<div class="form-group">
+                				<input class="form-control userComment" type="text" placeholder="Do you have something to say about this critter? Type your comment below:" />
+            				</div>
+            				<div class="form-group">
+                				<button class="btn btn-default commentButton">Add</button>
+            				</div>
+        				</form>
+    				</div>
+				</div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    <!-- End of Modal -->
+
+
 <!-- Parallax -->
 
     		<div id="parallax-1">
@@ -51,7 +113,7 @@
 				<img id="bg3-3" src="assets/images/spider8.jpg" alt="Blanchard's air balloon"/>
 				<img id="bg3-4" src="assets/images/spider5.jpg" alt="Landscape with trees and cows"/>
 			</div>
-			
+
 			<!-- Parallax  midground clouds -->
 			<div id="parallax-2">
 				<img id="bg2-1" src="assets/images/spider1.jpg" alt="cloud"/>
@@ -60,7 +122,7 @@
 				<img id="bg2-4" src="assets/images/spider8.jpg" alt="cloud"/>
 				<img id="bg2-5" src="assets/images/spider9.jpg" alt="cloud"/>
 			</div>
-			
+
 			<!-- Parallax  background clouds -->
 			<div id="parallax-3">
 				<img id="bg1-1" src="assets/images/spider8.jpg" alt="cloud"/>
@@ -80,7 +142,7 @@
 		    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 		    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 			<script type="text/javascript" src="assets/js/index.js"></script>
- 
+
 <!-- AutoComplete JS -->
 			<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -92,7 +154,7 @@
       $(".image").on("click", function(){
         $("#crittersModal").modal("show");
       })
-      
+
 
     $( document ).ready(function() {
       $( ".form-control" ).autocomplete({
