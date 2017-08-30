@@ -55,7 +55,7 @@ $(document).ready(function() {
 
 		for (var index = 0; index < spiders.length; index++)
 		{
-			if(spiders[index].color == critterColor || spiders[index].size == critterSize){
+			if(spiders[index].color == critterColor || spiders[index].size == critterSize || spiders[index].name == critterName){
 				search.push(spiders[index]);
 			}
 		};
