@@ -125,12 +125,12 @@ app.post('/upload', function(req, res) {
       			link: critterImage
       		})
       		.then(function() {
-      			console.log("We made a thing!");
+      			console.log("Critter submitted!");
       		});
       	});
       });
 
-			console.log("done uploading");
-			res.send('File uploaded!');
+			console.log("done uploading")
+			res.redirect("/");
 		});
 	});

@@ -1,19 +1,3 @@
-// $(document).ready(function() {
-// 	var dir = "../../../uploads";
-// 	var fileextension = ".jpg";
-// 	$.ajax({
-// 	    //This will retrieve the contents of the folder
-// 	    url: dir,
-// 	    success: function (data) {
-// 	        //List all .jpg file names in the page
-// 	        $(data).find("a:contains(" + fileextension + ")").each(function () {
-// 	            // var filename = this.href.replace(window.location.host, "").replace("http://", "");
-// 	            $("body").append("<img src='" + dir + filename + "'>");
-// 	        });
-// 	    }
-// 	});
-
-// });
 $(document).ready(function() {
 
 	console.log("ready!");
@@ -22,7 +6,7 @@ $(document).ready(function() {
 		return response.json();
 		console.log("connecting with api");
   	})
-  	.then(function(json) 
+  	.then(function(json)
 	{
 		var spiders = json;
 		var identified = []
@@ -31,7 +15,7 @@ $(document).ready(function() {
 		{
 			if(spiders[index].identified !== true){
 				identified.push(spiders[index]);
-			} 
+			}
 		};
 		console.log(identified);
 
@@ -65,12 +49,12 @@ $(document).ready(function() {
 					$('#critters').append(row);
 					row = getRow();
 				}
-			
+
 		}
 	})
   	.catch(function(error)
-  	{ 
-  		console.log(error); 
+  	{
+  		console.log(error);
   	});
 
 
@@ -91,4 +75,3 @@ $(document).ready(function() {
 }
 
 });
-
