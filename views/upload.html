@@ -116,15 +116,29 @@
 						    </select>
 						  </div>
 
-						 <div class="input-group">
-						  <input type="text" class="form-control" name="critterName" id="critterName" placeholder="Do you know the name of your critter?" aria-describedby="critterName">
+            <div class="form-group">
+              <div class="checkbox">
+                <label for="identifiedCritter">Do you know the name of your critter? </label>
+                <label class="checkbox-inline" name="identified" id="identified">
+                <input type="checkbox" label value="true">Yes</label>
+                <input type="checkbox" label value="false">No</label>
+              </div>
+            </div>
+
+              <div class="form-group" id="critterName">
+                <label for="critterName">Critter Name</label>
+                <input type="text" class="form-control" name="name" placeholder="Critter Name" aria-describedby="critterName" hide>
+              </div>
+
+						 <div class="form-group">
+               <label for="critterComment">Comments</label>
+						  <input type="text" class="form-control" name="comment" id="critterComment" placeholder="Comments about your critter go here!" aria-describedby="critterComment">
 						</div>
-						<br>
 
 						  <div class="form-group">
 						    <label for="imageFile">File input</label>
 						    <input type="file" class="form-control-file" id="imageFile" aria-describedby="fileHelp" name="critterUpload">
-						    <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+						    <small id="fileHelp" class="form-text text-muted"></small>
 						  </div>
 
 						    <input type="submit"/>
@@ -139,5 +153,17 @@
 
 
 	  		<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+        <script>
+
+        $(document).ready(function(){
+          $("#critterName").hide();
+          $("#identified").click(function(){
+            $("#critterName").toggle();
+          });
+        });
+        </script>
+
+
   		</body>
 	 </html>

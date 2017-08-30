@@ -76,12 +76,15 @@ app.post('/upload', function(req, res) {
   console.log(critterJpg);
 
   var email = req.body.email;
-  var critterName = req.body.critterName;
+  var critterName = req.body.name;
+  var critterComment = req.body.comment;
+  var critterIdentified = req.body.identified;
   var zipCode = req.body.zip;
   var critterSize = req.body.size;
   var critterColor = req.body.color;
   var critterHairy = req.body.hairy;
   var critterWeb = req.body.web;
+  console.log(req.body);
 
   // var emailInput = $('#inputEmail');
 
@@ -116,21 +119,24 @@ app.post('/upload', function(req, res) {
       	User.save()
       	.then(function() {
       		User.createSpider({
+            identified: critterIdentified,
       			name: critterName,
       			zipCode: zipCode,
       			size: critterSize,
       			color: critterColor,
       			hairy: critterHairy,
       			web: critterWeb,
+            comment: critterComment,
       			link: critterImage
       		})
       		.then(function() {
-      			console.log("We made a thing!");
+      			console.log("Critter submitted!");
+            console.log(critterComment);
       		});
       	});
       });
 
-			console.log("done uploading");
-			res.send('File uploaded!');
+			console.log("done uploading")
+			res.redirect("/");
 		});
 	});

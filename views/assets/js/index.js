@@ -36,7 +36,7 @@ $(document).ready(function() {
 		return response.json();
 		console.log("connecting with api");
   	})
-  	.then(function(json) 
+  	.then(function(json)
 	{
 		var spiders = json;
 		var identified = []
@@ -45,7 +45,7 @@ $(document).ready(function() {
 		{
 			if(spiders[index].identified !== true){
 				identified.push(spiders[index]);
-			} 
+			}
 		};
 		console.log(identified);
 
@@ -79,12 +79,12 @@ $(document).ready(function() {
 					$('#critters').append(row);
 					row = getRow();
 				}
-			
+
 		}
 	})
   	.catch(function(error)
-  	{ 
-  		console.log(error); 
+  	{
+  		console.log(error);
   	});
 
 
@@ -119,4 +119,3 @@ $(document).ready(function() {
 }
 
 });
-
