@@ -1,8 +1,36 @@
 $(document).ready(function() {
 	$(document).on('click','.image',function(){
 		$("#crittersModal").modal("show");
-        console.log("clicked!")
+
+		var url = $(this);
+
+		var divImage = $('<div>');
+		$(divImage).css('width', '100%');
+		$(divImage).css('height', '100%');
+		$(divImage).css('background-image', 'url('+ url[0].style.backgroundImage + ')');
+		$(divImage).css('background-position', 'center');
+		$(divImage).css('background-repeat', 'no-repeat');
+		$(divImage).css('background-size', 'cover');
+		$('#photoImage').append(divImage);
+		console.log("divImage ", $(divImage));
+		console.log(url[0].style.backgroundImage)
+
     });
+
+	var critterSize;
+	var critterColor;
+	var critterName;
+
+    $(document).on('click','#submitSearch',function(){
+    	critterSize = $("#critterSize").val();
+    	critterColor = $("#critterColor").val();
+    	critterName = $("#nameInput").val().trim();
+    	console.log("Submit Clicked!")
+    	console.log(critterSize);
+    	console.log(critterColor);
+    	console.log(critterName);
+
+    	});
 
 fetch('./api/spiders').then(function(response)
 	{
