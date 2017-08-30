@@ -32,6 +32,8 @@ $(document).ready(function() {
 	var critterColor;
 	var critterName;
 
+//SEARCH FUNCTION BEGINNING
+
     $(document).on('click','#submitSearch',function(){
     	critterSize = $("#critterSize").val();
     	critterColor = $("#critterColor").val();
@@ -41,7 +43,69 @@ $(document).ready(function() {
     	console.log(critterColor);
     	console.log(critterName);
 
+
+    	fetch('./api/spiders').then(function(response)
+	{
+		return response.json();
+  	})
+  	.then(function(json) 
+	{
+		var spiders = json;
+		var search = []
+
+		for (var index = 0; index < spiders.length; index++)
+		{
+			if(spiders[index].color == critterColor || spiders[index].size == critterSize){
+				search.push(spiders[index]);
+			}
+		};
+
+		var row = getRow();
+		for(var index = 0; index < search.length; index++)
+		{
+				var divContainer = $("<div>");
+				$(divContainer).addClass('col-sm-12 col-md-3 col-lg-3 photoSpot');
+
+				var divImage = $('<div>');
+				$(divImage).addClass('image');
+				$(divImage).css('width', '100%');
+				$(divImage).css('height', '100%');
+				$(divImage).css('background-image', 'url('+ search[index].link + ')');
+				$(divImage).css('background-position', 'center');
+				$(divImage).css('background-repeat', 'no-repeat');
+				$(divImage).css('background-size', 'cover');
+
+				var paragraphName = $('<p>');
+				$(paragraphName).addClass('links');
+				$(paragraphName).html(search[index].name);
+
+				$(divImage).append(paragraphName);
+				$(divContainer).append(divImage);
+
+				$(row).append(divContainer);
+
+				if(index + 1 == search.length || (index + 1 % 4 == 0))
+				{
+					$('#critters').html(row);
+					row = getRow();
+				}
+		}
+	})
+  	.catch(function(error)
+  	{ 
+  		console.log(error); 
+  	});
+
+function getRow()
+{
+	var containerDiv = $('<div>');
+	$(containerDiv).addClass('row');
+	return containerDiv;
+};
+
     	});
+
+//SEARCH FUNCTION END
 
 
 //POPULATING HTML FROM DATABASE
