@@ -3,17 +3,28 @@ $(document).ready(function() {
 		$("#crittersModal").modal("show");
 
 		var url = $(this);
+		console.log("url ", url);
 
 		var divImage = $('<div>');
+		$(divImage).addClass('modalImage')
 		$(divImage).css('width', '100%');
 		$(divImage).css('height', '100%');
-		$(divImage).css('background-image', 'url('+ url[0].style.backgroundImage + ')');
+		$(divImage).css('background-image', url[0].style.backgroundImage);
 		$(divImage).css('background-position', 'center');
 		$(divImage).css('background-repeat', 'no-repeat');
 		$(divImage).css('background-size', 'cover');
-		$('#photoImage').append(divImage);
+		$('#photoImage').html(divImage);
 		console.log("divImage ", $(divImage));
-		console.log(url[0].style.backgroundImage)
+		console.log(url[0].textContent);
+
+		var name = url[0].textContent
+		var upperName = name.toUpperCase();
+
+		var critterTitle = $('<h5>');
+		$(critterTitle).addClass('modal-title');
+		$(critterTitle).html('Critter Name: ' + upperName);
+
+		$(".modal-header").html(critterTitle)
 
     });
 
@@ -32,6 +43,8 @@ $(document).ready(function() {
 
     	});
 
+
+//POPULATING HTML FROM DATABASE
 fetch('./api/spiders').then(function(response)
 	{
 		return response.json();
