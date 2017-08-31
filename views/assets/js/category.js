@@ -80,9 +80,9 @@ $(document).ready(function() {
 				$(paragraphName).html(search[index].name);
 
 				$(divImage).append(paragraphName);
-				$(divContainer).append(divImage);
+				$(divContainer).prepend(divImage);
 
-				$(row).append(divContainer);
+				$(row).prepend(divContainer);
 
 				if(index + 1 == search.length || (index + 1 % 4 == 0))
 				{
@@ -134,16 +134,22 @@ fetch('./api/spiders').then(function(response)
 
 				var paragraphName = $('<p>');
 				$(paragraphName).addClass('links');
-				$(paragraphName).html(spiders[index].name);
+
+				if(spiders[index].identified == true){
+					$(paragraphName).html(spiders[index].name);
+				}
+				else{
+					$(paragraphName).html("unidentified");
+				};
 
 				$(divImage).append(paragraphName);
 				$(divContainer).append(divImage);
 
-				$(row).append(divContainer);
+				$(row).prepend(divContainer);
 
 				if(index + 1 == spiders.length || (index + 1 % 4 == 0))
 				{
-					$('#critters').append(row);
+					$('#critters').prepend(row);
 					row = getRow();
 				}
 		}
@@ -160,12 +166,13 @@ function getRow()
 	return containerDiv;
 };
 
+//POPULATING HTML END
 
 // // comment box
       $(".commentButton").on("click", function(){
       	event.preventDefault();
-            var userComment = $(".userComment").val();
-      	$(".commentText").append("<div class='commentText'>" + userComment + "</div>");
+            var userComment = $(".userComment").val().trim();
+      	$(".commentText").append("<div class='commentText' id='commentStyle'>" + userComment + "</div>");
             $(".userComment").val("");
       });
 

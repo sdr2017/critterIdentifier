@@ -109,11 +109,25 @@ a:hover{
 /*END IMAGES TO PULL FROM SERVER*/
 
 
+/*UPLOAD FORM*/
+#zipForm, #emailForm{
+	width: 100%;
+}
+
+
 /*MODAL BEGINNING */
 
 h5 {
 	font-family: 'Montserrat', sans-serif;
 	color: #6d6d6d;
+}
+
+.modalForms{
+	padding: 0px;
+}
+
+.modal-body{
+	padding: 30px;
 }
 
 .modalStyle {
@@ -142,6 +156,10 @@ h5 {
 
 .modalImage {
 	border-radius: 5px;
+}
+
+.modal-footer {
+	padding: 20px 0px 20px 20px;
 }
 
 /*Comment Box*/
@@ -205,6 +223,12 @@ h5 {
 #commentButton{
 	width: 20%
 }
+
+#commentStyle{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 15px;
+	line-height: 50px; 
+	}
 /*MODAL END */
 
 /*Parallax*/

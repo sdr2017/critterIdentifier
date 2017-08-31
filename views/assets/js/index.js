@@ -72,11 +72,11 @@ $(document).ready(function() {
 				$(divImage).append(paragraphName);
 				$(divContainer).append(divImage);
 
-				$(row).append(divContainer);
+				$(row).prepend(divContainer);
 
 				if(index + 1 == identified.length || (index + 1 % 4 == 0))
 				{
-					$('#critters').append(row);
+					$('#critters').prepend(row);
 					row = getRow();
 				}
 
