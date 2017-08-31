@@ -109,34 +109,42 @@ a:hover{
 /*END IMAGES TO PULL FROM SERVER*/
 
 
+/*MODAL BEGINNING */
+
+h5 {
+	font-family: 'Montserrat', sans-serif;
+	color: #6d6d6d;
+}
+
 .modalStyle {
   position: fixed;
   max-width: 100%;
-  top: 25%;
+  top: 3%;
   transform: translate(0%, 0%);
 }
 
 .modal-content {
-	width: 240%;
+	width: 200%;
 }
 
 .modal-dialog {
-	left: -25%;
+	left: -17%;
 	max-width: 35%;
 }
 
 #photoImage {
-	width: 50%;
-	height: auto;
+	width: 75%;
+	height: 375px;
+	border-radius: 5px;
+	display: block;
+	margin: auto;
+}
+
+.modalImage {
 	border-radius: 5px;
 }
 
 /*Comment Box*/
-.detailBox {
-    width: 100%;
-    border:1px solid #bbb;
-	border-radius: 5px;
-}
 
 .form-group:first-child, .actionBox .form-group:first-child {
     width:80%;
@@ -180,10 +188,24 @@ a:hover{
     font-family:verdana;
     font-size:11px;
 }
-.actionBox {
-    border-top:1px dotted #bbb;
-    padding:10px;
+
+.submitName {
+	margin-top: 20px;
 }
+
+.comment{
+	margin: 0px;
+	padding: 0px;
+}
+
+#comment{
+	width: 80%
+}
+
+#commentButton{
+	width: 20%
+}
+/*MODAL END */
 
 /*Parallax*/
 
