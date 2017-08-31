@@ -80,9 +80,9 @@ $(document).ready(function() {
 				$(paragraphName).html(search[index].name);
 
 				$(divImage).append(paragraphName);
-				$(divContainer).append(divImage);
+				$(divContainer).prepend(divImage);
 
-				$(row).append(divContainer);
+				$(row).prepend(divContainer);
 
 				if(index + 1 == search.length || (index + 1 % 4 == 0))
 				{
@@ -145,11 +145,11 @@ fetch('./api/spiders').then(function(response)
 				$(divImage).append(paragraphName);
 				$(divContainer).append(divImage);
 
-				$(row).append(divContainer);
+				$(row).prepend(divContainer);
 
 				if(index + 1 == spiders.length || (index + 1 % 4 == 0))
 				{
-					$('#critters').append(row);
+					$('#critters').prepend(row);
 					row = getRow();
 				}
 		}
