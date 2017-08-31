@@ -58,7 +58,6 @@ app.use(fileUpload());
 
 app.get('/upload', function(req, res) {
 	res.sendFile(path.join(__dirname, '/views', 'upload.html'));
-  console.log(req.body);
 });
 
 app.post('/upload', function(req, res) {
@@ -66,6 +65,7 @@ app.post('/upload', function(req, res) {
 		console.log(req.files);
 		return res.status(400).send('No files were uploaded.');
 	}
+
 // Critter Upload using S3 client
 
 	// The name of the input field (i.e. "critterUpload") is used to retrieve the uploaded file
@@ -86,7 +86,8 @@ app.post('/upload', function(req, res) {
   var critterWeb = req.body.web;
   console.log(req.body);
 
-  // var emailInput = $('#inputEmail');
+  var userIdentify = req.body.userIdentify;
+  console.log(req.body);
 
 	// Use the mv() method to place the file somewhere on your server
 	critterUpload.mv('uploads/' + critterJpg, function(err) {
@@ -139,4 +140,14 @@ app.post('/upload', function(req, res) {
 			console.log("done uploading")
 			res.redirect("/");
 		});
+
+    db.Spider.update({name: userIdentify},
+            {where: {link: critterImage}})
+            .then(function (result) {
+                response(result).code(200);
+
+            }).catch(function (err) {
+            request.server.log(['error'], err.stack);
+        });
+
 	});
