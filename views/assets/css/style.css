@@ -158,6 +158,10 @@ h5 {
 	border-radius: 5px;
 }
 
+.modal-footer {
+	padding: 20px 0px 20px 20px;
+}
+
 /*Comment Box*/
 
 .form-group:first-child, .actionBox .form-group:first-child {
