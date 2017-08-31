@@ -109,6 +109,12 @@ a:hover{
 /*END IMAGES TO PULL FROM SERVER*/
 
 
+/*UPLOAD FORM*/
+#zipForm, #emailForm{
+	width: 100%;
+}
+
+
 /*MODAL BEGINNING */
 
 h5 {
