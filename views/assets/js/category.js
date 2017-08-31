@@ -160,12 +160,13 @@ function getRow()
 	return containerDiv;
 };
 
+//POPULATING HTML END
 
 // // comment box
       $(".commentButton").on("click", function(){
       	event.preventDefault();
-            var userComment = $(".userComment").val();
-      	$(".commentText").append("<div class='commentText'>" + userComment + "</div>");
+            var userComment = $(".userComment").val().trim();
+      	$(".commentText").append("<div class='commentText' id='commentStyle'>" + userComment + "</div>");
             $(".userComment").val("");
       });
 

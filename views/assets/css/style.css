@@ -122,6 +122,14 @@ h5 {
 	color: #6d6d6d;
 }
 
+.modalForms{
+	padding: 0px;
+}
+
+.modal-body{
+	padding: 30px;
+}
+
 .modalStyle {
   position: fixed;
   max-width: 100%;
@@ -211,6 +219,12 @@ h5 {
 #commentButton{
 	width: 20%
 }
+
+#commentStyle{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 15px;
+	line-height: 50px; 
+	}
 /*MODAL END */
 
 /*Parallax*/
