@@ -134,7 +134,13 @@ fetch('./api/spiders').then(function(response)
 
 				var paragraphName = $('<p>');
 				$(paragraphName).addClass('links');
-				$(paragraphName).html(spiders[index].name);
+
+				if(spiders[index].identified == true){
+					$(paragraphName).html(spiders[index].name);
+				}
+				else{
+					$(paragraphName).html("unidentified");
+				};
 
 				$(divImage).append(paragraphName);
 				$(divContainer).append(divImage);
