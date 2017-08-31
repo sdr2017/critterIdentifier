@@ -165,7 +165,7 @@ function getRow()
       $(".commentButton").on("click", function(){
       	event.preventDefault();
             var userComment = $(".userComment").val();
-      	$(".commentText").append("<div class='commentText'>" + userComment + "</div>");
+      	$(".commentText").append("<div class='commentText' id='commentStyle'>" + userComment + "</div>");
             $(".userComment").val("");
       });
 
