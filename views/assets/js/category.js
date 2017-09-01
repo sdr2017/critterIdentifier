@@ -28,11 +28,12 @@ $(document).ready(function() {
 
     });
 
+
+//SEARCH FUNCTION BEGINNING
+
 	var critterSize;
 	var critterColor;
 	var critterName;
-
-//SEARCH FUNCTION BEGINNING
 
     $(document).on('click','#submitSearch',function(){
     	critterSize = $("#critterSize").val();
@@ -50,46 +51,144 @@ $(document).ready(function() {
   	})
   	.then(function(json) 
 	{
+		var booleanSize = !!critterSize
+		var booleanColor = !!critterColor
+		var booleanName = !!critterName
 		var spiders = json;
 		var search = []
+		console.log(booleanSize);
+		console.log(booleanColor);
+		console.log(booleanName);
 
-		for (var index = 0; index < spiders.length; index++)
-		{
-			if(spiders[index].color == critterColor || spiders[index].size == critterSize || spiders[index].name == critterName){
-				search.push(spiders[index]);
+		//If search by size, color and name are selected
+		if(booleanSize == true && booleanColor == true && booleanName == true){
+			console.log("all selected");
+
+			search = [];
+
+			for (var index = 0; index < spiders.length; index++){
+				if(spiders[index].color == critterColor && spiders[index].size == critterSize && spiders[index].name == critterName){
+					search.push(spiders[index]);
+				}
+			};
+
+			console.log(search);
+
+			if(search.length < 1){
+				$("#searchResults").append('<p>Search returned no results. Please Try again.</p>')
+				console.log("working");
+			}
+			else{
+				searchResults();
 			}
 		};
 
-		var row = getRow();
-		for(var index = 0; index < search.length; index++)
-		{
-				var divContainer = $("<div>");
-				$(divContainer).addClass('col-sm-12 col-md-3 col-lg-3 photoSpot');
 
-				var divImage = $('<div>');
-				$(divImage).addClass('image');
-				$(divImage).css('width', '100%');
-				$(divImage).css('height', '100%');
-				$(divImage).css('background-image', 'url('+ search[index].link + ')');
-				$(divImage).css('background-position', 'center');
-				$(divImage).css('background-repeat', 'no-repeat');
-				$(divImage).css('background-size', 'cover');
+		//If search by size and color are selected
+		if(booleanSize == true && booleanColor == true && booleanName == false){
+			console.log("size and color selected");
 
-				var paragraphName = $('<p>');
-				$(paragraphName).addClass('links');
-				$(paragraphName).html(search[index].name);
+			search = [];
 
-				$(divImage).append(paragraphName);
-				$(divContainer).prepend(divImage);
-
-				$(row).prepend(divContainer);
-
-				if(index + 1 == search.length || (index + 1 % 4 == 0))
-				{
-					$('#critters').html(row);
-					row = getRow();
+			for (var index = 0; index < spiders.length; index++){
+				if(spiders[index].color == critterColor && spiders[index].size == critterSize){
+					search.push(spiders[index]);
 				}
-		}
+			};
+
+			console.log(search);
+
+			if(search.length < 1){
+				$("#searchResults").append('<p>Search returned no results. Please Try again.</p>')
+				console.log("working");
+			}
+			else{
+				searchResults();
+			}
+		};
+
+
+		//If search by size is selected
+		if(booleanSize == true && booleanColor == false && booleanName == false){
+			console.log("size selected");
+		};
+
+
+		//If search by color is selected
+		if(booleanSize == false && booleanColor == true && booleanName == false){
+			console.log("color selected");
+		};
+
+
+		//If search by color and name are selected
+		if(booleanSize == false && booleanColor == true && booleanName == true){
+			console.log("color and name selected");
+		};
+
+
+		//If search by name is selected
+		if(booleanSize == false && booleanColor == false && booleanName == true){
+			console.log("name selected");
+		};
+
+
+		//If search by name and size are selected
+		if(booleanSize == true && booleanColor == false && booleanName == true){
+			console.log("name and size selected");
+		};
+
+
+
+
+		// for (var index = 0; index < spiders.length; index++)
+		// {
+		// 	if(spiders[index].color == critterColor && spiders[index].size == critterSize || spiders[index].name == critterName){
+		// 		search.push(spiders[index]);
+		// 	}
+		// };
+		// console.log(search);
+
+		//Function Results
+
+		function searchResults(){
+			var row = getRow();
+			for(var index = 0; index < search.length; index++)
+			{
+					var divContainer = $("<div>");
+					$(divContainer).addClass('col-sm-12 col-md-3 col-lg-3 photoSpot');
+
+					var divImage = $('<div>');
+					$(divImage).addClass('image');
+					$(divImage).css('width', '100%');
+					$(divImage).css('height', '100%');
+					$(divImage).css('background-image', 'url('+ search[index].link + ')');
+					$(divImage).css('background-position', 'center');
+					$(divImage).css('background-repeat', 'no-repeat');
+					$(divImage).css('background-size', 'cover');
+
+					var paragraphName = $('<p>');
+					$(paragraphName).addClass('links');
+
+					if(search[index].identified == true){
+						$(paragraphName).html(search[index].name);
+					}
+					else{
+						$(paragraphName).html("unidentified");
+					};
+
+					$(divImage).append(paragraphName);
+					$(divContainer).prepend(divImage);
+
+					$(row).prepend(divContainer);
+
+					if(index + 1 == search.length || (index + 1 % 4 == 0))
+					{
+						$('#critters').html(row);
+						row = getRow();
+					}
+			};
+		};
+
 	})
   	.catch(function(error)
   	{ 
