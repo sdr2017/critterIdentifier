@@ -140,14 +140,4 @@ app.post('/upload', function(req, res) {
 			console.log("done uploading")
 			res.redirect("/");
 		});
-
-    db.Spider.update({name: userIdentify},
-            {where: {link: critterImage}})
-            .then(function (result) {
-                response(result).code(200);
-
-            }).catch(function (err) {
-            request.server.log(['error'], err.stack);
-        });
-
 	});
