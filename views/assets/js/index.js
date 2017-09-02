@@ -49,7 +49,7 @@ $(document).ready(function() {
 			};
 
 			var justTheImage = imageUrl.split("url");
-
+			console.log(justTheImage);
 				$("#spiderNaming").val(justTheImage);
 
 			if(comment == null || comment == ""){
