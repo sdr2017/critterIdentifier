@@ -1,9 +1,12 @@
 $(document).ready(function() {
+
+//MODAL FUNCTIONALITY	
 	$(document).on('click','.image',function(){
+
 		$("#crittersModal").modal("show");
 
 		var url = $(this);
-		console.log("url ", url);
+		console.log(this);
 
 		var divImage = $('<div>');
 		$(divImage).addClass('modalImage')
@@ -24,9 +27,38 @@ $(document).ready(function() {
 		$(critterTitle).addClass('modal-title');
 		$(critterTitle).html('Critter Name: ' + upperName);
 
-		$(".modal-header").html(critterTitle)
+		$(".modal-header").html(critterTitle);
+
+		//pulling comment from DB
+		var comment
+		
+		fetch('./api/spiders').then(function(response){
+			return response.json();
+  		}).then(function(json){
+			
+			var spiders = json;
+			var imageUrl = url[0].style.backgroundImage
+
+			for(var index = 0; index < spiders.length; index++){
+				if('url("'+ spiders[index].link +'")' == imageUrl){
+					console.log("links match");
+					comment = spiders[index].comment;
+					console.log(comment);
+				};
+			};
+
+			if(comment == null || comment == ""){
+				$(".commentText").html("<div></div>");
+			}
+			else{
+				$(".commentText").html("<div id='commentStyle'>" + comment + "</div>");
+			}
+	    });
+
+
 
     });
+//END MODAL FUNCTIONALITY
 
 
 //SEARCH FUNCTION BEGINNING
@@ -76,7 +108,7 @@ $(document).ready(function() {
 
 			if(search.length <= 0){
 				$("#searchResults").html('<p>Search returned no results. Please Try again.</p>')
-				console.log("working");
+				hideImages();
 			}
 			else{
 				searchResults();
@@ -102,7 +134,7 @@ $(document).ready(function() {
 
 			if(search.length <= 0){
 				$("#searchResults").html('<p>Search returned no results. Please Try again.</p>')
-				console.log("working");
+				hideImages();
 			}
 			else{
 				$("#searchResults").html('<p>Displaying results for ' + critterSize + ', ' + critterColor + '</p>')
@@ -128,7 +160,7 @@ $(document).ready(function() {
 
 			if(search.length <= 0){
 				$("#searchResults").html('<p>Search returned no results. Please Try again.</p>')
-				console.log("working");
+				hideImages();
 			}
 			else{
 				$("#searchResults").html('<p>Displaying results for ' + critterSize + '</p>')
@@ -154,7 +186,7 @@ $(document).ready(function() {
 
 			if(search.length <= 0){
 				$("#searchResults").html('<p>Search returned no results. Please Try again.</p>')
-				console.log("working");
+				hideImages();
 			}
 			else{
 				$("#searchResults").html('<p>Displaying results for ' + critterColor + '</p>')
@@ -181,7 +213,7 @@ $(document).ready(function() {
 
 			if(search.length <= 0){
 				$("#searchResults").html('<p>Search returned no results. Please Try again.</p>')
-				console.log("working");
+				hideImages();
 			}
 			else{
 				$("#searchResults").html('<p>Displaying results for ' + critterColor + ', ' +critterName + '</p>')
@@ -207,7 +239,7 @@ $(document).ready(function() {
 
 			if(search.length <= 0){
 				$("#searchResults").html('<p>Search returned no results. Please Try again.</p>')
-				console.log("working");
+				hideImages();
 			}
 			else{
 				$("#searchResults").html('<p>Displaying results for ' + critterName + '</p>')
@@ -233,7 +265,7 @@ $(document).ready(function() {
 
 			if(search.length <= 0){
 				$("#searchResults").html('<p>Search returned no results. Please Try again.</p>')
-				console.log("working");
+				hideImages();
 			}
 			else{
 				$("#searchResults").html('<p>Displaying results for ' + critterSize + ', ' + critterName + '</p>')
@@ -242,18 +274,9 @@ $(document).ready(function() {
 			searchReset();
 		};
 
-
-
-
-		// for (var index = 0; index < spiders.length; index++)
-		// {
-		// 	if(spiders[index].color == critterColor && spiders[index].size == critterSize || spiders[index].name == critterName){
-		// 		search.push(spiders[index]);
-		// 	}
-		// };
-		// console.log(search);
-
-		//Function Results
+		function hideImages(){
+			$(".photoSpot").hide();
+		};
 
 		function searchReset(){
 			$("#nameInput").val('');
@@ -382,9 +405,11 @@ function getRow()
 // // comment box
       $(".commentButton").on("click", function(){
       	event.preventDefault();
+
             var userComment = $(".userComment").val().trim();
-      	$(".commentText").append("<div class='commentText' id='commentStyle'>" + userComment + "</div>");
+      	$(".commentText").append("<div id='commentStyle'>" + userComment + "</div>");
             $(".userComment").val("");
+            console.log(userComment);
       });
 
 /* Scroll event handler */

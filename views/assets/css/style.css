@@ -36,7 +36,7 @@ a:hover{
 	text-decoration: none;
 }
 
-.btn:focus {
+#submitSearch:focus {
   outline: none;
 }
 
@@ -156,6 +156,12 @@ h5 {
 	max-width: 35%;
 }
 
+.modal-header {
+	background-color: #f6f6f6;
+	border-radius: 5px 5px 0px 0px;
+	border-bottom: 1px solid #c4c4c4;
+}
+
 #photoImage {
 	width: 75%;
 	height: 375px;
@@ -170,6 +176,7 @@ h5 {
 
 .modal-footer {
 	padding: 20px 0px 20px 20px;
+	border: none;
 }
 
 /*Comment Box*/
@@ -230,15 +237,32 @@ h5 {
 	width: 80%
 }
 
-#commentButton{
-	width: 20%
-}
-
 #commentStyle{
 	font-family: 'Montserrat', sans-serif;
 	font-size: 15px;
-	line-height: 50px; 
-	}
+	line-height: 40px; 
+	border-bottom: 1px solid #c4c4c4;
+	margin: 0px 25px 0px 25px;
+	color: #454545;
+}
+
+.commentBackgroundArea{
+	border-radius: 5px;
+	border: 1px #c4c4c4 solid;
+	background-color: #f6f6f6;
+	margin-top: 25px;
+	height: auto;
+	padding-bottom: 40px;
+}
+
+.commentHeader{
+	padding: 0px 10px 0px 10px;
+	line-height: 40px;
+	border-bottom: 1px solid #c4c4c4;
+	background-color: #efefef;
+	border-radius: 5px 5px 0px 0px;
+}
+
 /*MODAL END */
 
 /*Parallax*/
