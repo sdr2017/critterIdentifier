@@ -407,6 +407,7 @@ function getRow()
 // // comment box
       $(".commentButton").on("click", function(){
       	event.preventDefault();
+
             var userComment = $(".userComment").val().trim();
       	$(".commentText").append("<div id='commentStyle'>" + userComment + "</div>");
             $(".userComment").val("");

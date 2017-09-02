@@ -16,12 +16,12 @@ nightmare
   .wait(1000)
   .select("#critterWeb", "true")
   .wait(1000)
-  .checkOption("#checkNo", "false")
-  .wait(1000)
-  .upload("#imageFile", "../views/images/testImage.JPG")
-  .wait(2000)
-  .click("#submitButton")
-  .wait(2000)
+  // .checkOption("#checkNo", "false")
+  // .wait(1000)
+  // .upload("#imageFile", "../views/images/testImage.JPG")
+  // .wait(2000)
+  // .click("#submitButton")
+  // .wait(2000)
 
   .evaluate(function(){
     return document.title;

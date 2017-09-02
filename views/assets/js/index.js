@@ -100,7 +100,8 @@ $(document).ready(function() {
       $(".commentButton").on("click", function(){
       	event.preventDefault();
             var userComment = $(".userComment").val().trim();
-      	$(".commentText").append("<div id='commentStyle'>" + userComment + "</div>");
+      	$(".commentText").append("<div class='commentText' id='commentStyle'>" + userComment + "</div>");
+
             $(".userComment").val("");
             console.log(userComment);
       });
