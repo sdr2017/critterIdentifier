@@ -99,9 +99,10 @@ $(document).ready(function() {
 	// // comment box
       $(".commentButton").on("click", function(){
       	event.preventDefault();
-            var userComment = $(".userComment").val();
-      	$(".commentText").append("<div class='commentText'>" + userComment + "</div>");
+            var userComment = $(".userComment").val().trim();
+      	$(".commentText").append("<div id='commentStyle'>" + userComment + "</div>");
             $(".userComment").val("");
+            console.log(userComment);
       });
 
 
