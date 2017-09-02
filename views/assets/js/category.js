@@ -80,8 +80,9 @@ $(document).ready(function() {
 			}
 			else{
 				searchResults();
-				$("#searchResults").html('<p>Displaying results for' + critterSize + critterColor + critterName + '</p>')
+				$("#searchResults").html('<p>Displaying results for ' + critterSize + ', ' + critterColor + ', ' + critterName + '</p>')
 			}
+			searchReset();
 		};
 
 
@@ -104,9 +105,10 @@ $(document).ready(function() {
 				console.log("working");
 			}
 			else{
-				$("#searchResults").html('<p>Displaying results for' + critterSize + critterColor + '</p>')
+				$("#searchResults").html('<p>Displaying results for ' + critterSize + ', ' + critterColor + '</p>')
 				searchResults();
 			}
+			searchReset();
 		};
 
 
@@ -129,9 +131,10 @@ $(document).ready(function() {
 				console.log("working");
 			}
 			else{
-				$("#searchResults").html('<p>Displaying results for' + critterSize + '</p>')
+				$("#searchResults").html('<p>Displaying results for ' + critterSize + '</p>')
 				searchResults()
 			}
+			searchReset();
 		};
 
 
@@ -154,9 +157,11 @@ $(document).ready(function() {
 				console.log("working");
 			}
 			else{
-				$("#searchResults").html('<p>Displaying results for' + critterColor + '</p>')
+				$("#searchResults").html('<p>Displaying results for ' + critterColor + '</p>')
 				searchResults()
 			}
+
+			searchReset();
 		};
 
 
@@ -179,9 +184,10 @@ $(document).ready(function() {
 				console.log("working");
 			}
 			else{
-				$("#searchResults").html('<p>Displaying results for' + critterColor + critterName + '</p>')
+				$("#searchResults").html('<p>Displaying results for ' + critterColor + ', ' +critterName + '</p>')
 				searchResults()
 			}
+			searchReset();
 		};
 
 
@@ -204,9 +210,10 @@ $(document).ready(function() {
 				console.log("working");
 			}
 			else{
-				$("#searchResults").html('<p>Displaying results for' + critterName + '</p>')
+				$("#searchResults").html('<p>Displaying results for ' + critterName + '</p>')
 				searchResults()
 			}
+			searchReset();
 		};
 
 
@@ -229,9 +236,10 @@ $(document).ready(function() {
 				console.log("working");
 			}
 			else{
-				$("#searchResults").html('<p>Displaying results for' + critterSize + critterName + '</p>')
+				$("#searchResults").html('<p>Displaying results for ' + critterSize + ', ' + critterName + '</p>')
 				searchResults()
 			}
+			searchReset();
 		};
 
 
@@ -246,6 +254,13 @@ $(document).ready(function() {
 		// console.log(search);
 
 		//Function Results
+
+		function searchReset(){
+			$("#nameInput").val('');
+			$("#critterSize").val('');
+    		$("#critterColor").val('');
+    		$('#submitSearch').removeClass('active');
+		};
 
 		function searchResults(){
 			var row = getRow();
