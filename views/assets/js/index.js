@@ -19,8 +19,13 @@ $(document).ready(function() {
 		$(divImage).css('background-repeat', 'no-repeat');
 		$(divImage).css('background-size', 'cover');
 		$('#photoImage').html(divImage);
-		console.log("divImage ", $(divImage));
-		console.log(url[0].textContent);
+
+		
+		var linkValue = url[0].style.backgroundImage.split('"');
+
+		$('#spiderNaming').val(linkValue[1]);
+		console.log("value " + $("#spiderNaming").val());
+
 
 		var name = url[0].textContent
 		var upperName = name.toUpperCase();
