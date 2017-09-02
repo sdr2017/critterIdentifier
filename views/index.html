@@ -56,35 +56,34 @@
               <div class="modal-body">
                 <div id="photoImage"></div>
 
-                <div class="col-lg-12">
-                  <div class="input-group submitName">
-                    <input type="text" class="form-control" placeholder="Submit a Name for this Critter">
-                    <span class="input-group-btn" class="submitName">
-                      <button class="btn btn-secondary" type="submit" id="submitSearch">Submit</button>
-                    </span>
-                  </div>
-                </div>
-                <br>
-
 <!-- Comment Box -->
     				<div class="actionBox">
-        				<ul class="commentList">
-            				<li>
-                				<div class="commenterImage"></div>
-                				<div class="commentText">
-									<span class="date"></span>
-                				</div>
-            				</li>
-        				</ul>
-        				<form class="col-lg-12 form-inline" role="form">
-            				<div class="comment form-group" id="comment">
-                				<input class="form-control userComment" type="text" placeholder="Do you have something to say about this critter? Type your comment below:"/>
-            				</div>
-            				<div class="comment form-group" id="commentButton">
-                				<button class="btn btn-default commentButton">Add</button>
-            				</div>
-        				</form>
-    				</div>
+              <div class="commentBackgroundArea">
+                <h5 class="commentHeader">Comments:</h5>
+                        <div class="commenterImage"></div>
+                        <div class="commentText">
+                  <span class="date"></span>
+                        </div>
+                </div>
+                <form class="col-lg-12 form-inline modalForms" role="form">
+                  <div class="col-lg-12 modalForms" id="coment">
+                        <div class="input-group submitName">
+                          <input type="text" class="form-control userComment" placeholder="Do you have something to say about this critter? Type your comment below:">
+                          <span class="input-group-btn modalForms" class="submitName" id="commentButton">
+                            <button class="btn btn-secondary commentButton" type="submit">Submit</button>
+                          </span>
+                        </div>
+                      </div>
+                </form>
+                <div class="col-lg-12 modalForms">
+                      <div class="input-group submitName">
+                        <input type="text" class="form-control" placeholder="Identify this Critter">
+                        <span class="input-group-btn" class="submitName">
+                          <button class="btn btn-secondary" type="submit" id="submitNameofCritter">Submit</button>
+                        </span>
+                      </div>
+                    </div>
+            </div>
 
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

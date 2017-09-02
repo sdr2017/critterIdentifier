@@ -72,11 +72,11 @@ $(document).ready(function() {
 				$(divImage).append(paragraphName);
 				$(divContainer).append(divImage);
 
-				$(row).append(divContainer);
+				$(row).prepend(divContainer);
 
 				if(index + 1 == identified.length || (index + 1 % 4 == 0))
 				{
-					$('#critters').append(row);
+					$('#critters').prepend(row);
 					row = getRow();
 				}
 
@@ -99,9 +99,11 @@ $(document).ready(function() {
 	// // comment box
       $(".commentButton").on("click", function(){
       	event.preventDefault();
-            var userComment = $(".userComment").val();
+            var userComment = $(".userComment").val().trim();
       	$(".commentText").append("<div class='commentText' id='commentStyle'>" + userComment + "</div>");
+
             $(".userComment").val("");
+            console.log(userComment);
       });
 
 

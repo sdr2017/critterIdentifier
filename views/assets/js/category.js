@@ -28,11 +28,12 @@ $(document).ready(function() {
 
     });
 
+
+//SEARCH FUNCTION BEGINNING
+
 	var critterSize;
 	var critterColor;
 	var critterName;
-
-//SEARCH FUNCTION BEGINNING
 
     $(document).on('click','#submitSearch',function(){
     	critterSize = $("#critterSize").val();
@@ -50,46 +51,256 @@ $(document).ready(function() {
   	})
   	.then(function(json) 
 	{
+		var booleanSize = !!critterSize
+		var booleanColor = !!critterColor
+		var booleanName = !!critterName
 		var spiders = json;
 		var search = []
+		console.log(booleanSize);
+		console.log(booleanColor);
+		console.log(booleanName);
 
-		for (var index = 0; index < spiders.length; index++)
-		{
-			if(spiders[index].color == critterColor || spiders[index].size == critterSize || spiders[index].name == critterName){
-				search.push(spiders[index]);
+		//If search by size, color and name are selected
+		if(booleanSize == true && booleanColor == true && booleanName == true){
+			console.log("all selected");
+
+			search = [];
+
+			for (var index = 0; index < spiders.length; index++){
+				if(spiders[index].size == critterSize && spiders[index].color == critterColor && spiders[index].name == critterName){
+					search.push(spiders[index]);
+				}
+			};
+
+			console.log(search);
+
+			if(search.length <= 0){
+				$("#searchResults").html('<p>Search returned no results. Please Try again.</p>')
+				console.log("working");
 			}
+			else{
+				searchResults();
+				$("#searchResults").html('<p>Displaying results for ' + critterSize + ', ' + critterColor + ', ' + critterName + '</p>')
+			}
+			searchReset();
 		};
 
-		var row = getRow();
-		for(var index = 0; index < search.length; index++)
-		{
-				var divContainer = $("<div>");
-				$(divContainer).addClass('col-sm-12 col-md-3 col-lg-3 photoSpot');
 
-				var divImage = $('<div>');
-				$(divImage).addClass('image');
-				$(divImage).css('width', '100%');
-				$(divImage).css('height', '100%');
-				$(divImage).css('background-image', 'url('+ search[index].link + ')');
-				$(divImage).css('background-position', 'center');
-				$(divImage).css('background-repeat', 'no-repeat');
-				$(divImage).css('background-size', 'cover');
+		//If search by size and color are selected
+		if(booleanSize == true && booleanColor == true && booleanName == false){
+			console.log("size and color selected");
 
-				var paragraphName = $('<p>');
-				$(paragraphName).addClass('links');
-				$(paragraphName).html(search[index].name);
+			search = [];
 
-				$(divImage).append(paragraphName);
-				$(divContainer).append(divImage);
-
-				$(row).append(divContainer);
-
-				if(index + 1 == search.length || (index + 1 % 4 == 0))
-				{
-					$('#critters').html(row);
-					row = getRow();
+			for (var index = 0; index < spiders.length; index++){
+				if(spiders[index].size == critterSize && spiders[index].color == critterColor){
+					search.push(spiders[index]);
 				}
-		}
+			};
+
+			console.log(search);
+
+			if(search.length <= 0){
+				$("#searchResults").html('<p>Search returned no results. Please Try again.</p>')
+				console.log("working");
+			}
+			else{
+				$("#searchResults").html('<p>Displaying results for ' + critterSize + ', ' + critterColor + '</p>')
+				searchResults();
+			}
+			searchReset();
+		};
+
+
+		//If search by size is selected
+		if(booleanSize == true && booleanColor == false && booleanName == false){
+			console.log("size selected");
+
+			search = [];
+
+			for (var index = 0; index < spiders.length; index++){
+				if(spiders[index].size == critterSize){
+					search.push(spiders[index]);
+				}
+			};
+
+			console.log(search);
+
+			if(search.length <= 0){
+				$("#searchResults").html('<p>Search returned no results. Please Try again.</p>')
+				console.log("working");
+			}
+			else{
+				$("#searchResults").html('<p>Displaying results for ' + critterSize + '</p>')
+				searchResults()
+			}
+			searchReset();
+		};
+
+
+		//If search by color is selected
+		if(booleanSize == false && booleanColor == true && booleanName == false){
+			console.log("color selected");
+
+			search = [];
+
+			for (var index = 0; index < spiders.length; index++){
+				if(spiders[index].color == critterColor){
+					search.push(spiders[index]);
+				}
+			};
+
+			console.log(search);
+
+			if(search.length <= 0){
+				$("#searchResults").html('<p>Search returned no results. Please Try again.</p>')
+				console.log("working");
+			}
+			else{
+				$("#searchResults").html('<p>Displaying results for ' + critterColor + '</p>')
+				searchResults()
+			}
+
+			searchReset();
+		};
+
+
+		//If search by color and name are selected
+		if(booleanSize == false && booleanColor == true && booleanName == true){
+			console.log("color and name selected");
+
+			search = [];
+
+			for (var index = 0; index < spiders.length; index++){
+				if(spiders[index].color == critterColor && spider[index].name == critterName){
+					search.push(spiders[index]);
+				}
+			};
+
+			console.log(search);
+
+			if(search.length <= 0){
+				$("#searchResults").html('<p>Search returned no results. Please Try again.</p>')
+				console.log("working");
+			}
+			else{
+				$("#searchResults").html('<p>Displaying results for ' + critterColor + ', ' +critterName + '</p>')
+				searchResults()
+			}
+			searchReset();
+		};
+
+
+		//If search by name is selected
+		if(booleanSize == false && booleanColor == false && booleanName == true){
+			console.log("name selected");
+
+			search = [];
+
+			for (var index = 0; index < spiders.length; index++){
+				if(spiders[index].name == critterName){
+					search.push(spiders[index]);
+				}
+			};
+
+			console.log(search);
+
+			if(search.length <= 0){
+				$("#searchResults").html('<p>Search returned no results. Please Try again.</p>')
+				console.log("working");
+			}
+			else{
+				$("#searchResults").html('<p>Displaying results for ' + critterName + '</p>')
+				searchResults()
+			}
+			searchReset();
+		};
+
+
+		//If search by name and size are selected
+		if(booleanSize == true && booleanColor == false && booleanName == true){
+			console.log("name and size selected");
+
+			search = [];
+
+			for (var index = 0; index < spiders.length; index++){
+				if(spiders[index].size == critterSize && spider[index].name == critterName){
+					search.push(spiders[index]);
+				}
+			};
+
+			console.log(search);
+
+			if(search.length <= 0){
+				$("#searchResults").html('<p>Search returned no results. Please Try again.</p>')
+				console.log("working");
+			}
+			else{
+				$("#searchResults").html('<p>Displaying results for ' + critterSize + ', ' + critterName + '</p>')
+				searchResults()
+			}
+			searchReset();
+		};
+
+
+
+
+		// for (var index = 0; index < spiders.length; index++)
+		// {
+		// 	if(spiders[index].color == critterColor && spiders[index].size == critterSize || spiders[index].name == critterName){
+		// 		search.push(spiders[index]);
+		// 	}
+		// };
+		// console.log(search);
+
+		//Function Results
+
+		function searchReset(){
+			$("#nameInput").val('');
+			$("#critterSize").val('');
+    		$("#critterColor").val('');
+    		$('#submitSearch').removeClass('active');
+		};
+
+		function searchResults(){
+			var row = getRow();
+			for(var index = 0; index < search.length; index++)
+			{
+					var divContainer = $("<div>");
+					$(divContainer).addClass('col-sm-12 col-md-3 col-lg-3 photoSpot');
+
+					var divImage = $('<div>');
+					$(divImage).addClass('image');
+					$(divImage).css('width', '100%');
+					$(divImage).css('height', '100%');
+					$(divImage).css('background-image', 'url('+ search[index].link + ')');
+					$(divImage).css('background-position', 'center');
+					$(divImage).css('background-repeat', 'no-repeat');
+					$(divImage).css('background-size', 'cover');
+
+					var paragraphName = $('<p>');
+					$(paragraphName).addClass('links');
+
+					if(search[index].identified == true){
+						$(paragraphName).html(search[index].name);
+					}
+					else{
+						$(paragraphName).html("unidentified");
+					};
+
+					$(divImage).append(paragraphName);
+					$(divContainer).prepend(divImage);
+
+					$(row).prepend(divContainer);
+
+					if(index + 1 == search.length || (index + 1 % 4 == 0))
+					{
+						$('#critters').html(row);
+						row = getRow();
+					}
+			};
+		};
+
 	})
   	.catch(function(error)
   	{ 
@@ -145,11 +356,11 @@ fetch('./api/spiders').then(function(response)
 				$(divImage).append(paragraphName);
 				$(divContainer).append(divImage);
 
-				$(row).append(divContainer);
+				$(row).prepend(divContainer);
 
 				if(index + 1 == spiders.length || (index + 1 % 4 == 0))
 				{
-					$('#critters').append(row);
+					$('#critters').prepend(row);
 					row = getRow();
 				}
 		}
@@ -173,8 +384,9 @@ function getRow()
       	event.preventDefault();
 
             var userComment = $(".userComment").val().trim();
-      	$(".commentText").append("<div class='commentText' id='commentStyle'>" + userComment + "</div>");
+      	$(".commentText").append("<div id='commentStyle'>" + userComment + "</div>");
             $(".userComment").val("");
+            console.log(userComment);
       });
 
 /* Scroll event handler */
