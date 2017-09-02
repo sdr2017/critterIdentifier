@@ -63,13 +63,14 @@ app.get('/update', function(req, res) {
 
 app.post('/update', function(req, res) {
 
-var spiderName = req.body.userIdentify;
-console.log(req.body);
+  var spiderName = req.body.userIdentify;
 
-db.Spider.update ({name: spiderName}),
-{where: {link: url}}.then(function(result) {
-  console.log("New name submitted!");
-});
+  console.log(req.body);
+
+  db.Spider.update ({name: spiderName} && {identified: true}),
+  {where: {link: spiderImageUrl}}.then(function(result) {
+    console.log("New name submitted!");
+  });
 
 });
 

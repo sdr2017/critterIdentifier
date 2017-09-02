@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-//MODAL FUNCTIONALITY	
+//MODAL FUNCTIONALITY
 	$(document).on('click','.image',function(){
 
 		var comment = '';
@@ -32,11 +32,11 @@ $(document).ready(function() {
 		$(".modal-header").html(critterTitle);
 
 		//pulling comment from DB
-		
+
 		fetch('./api/spiders').then(function(response){
 			return response.json();
   		}).then(function(json){
-			
+
 			var spiders = json;
 			var imageUrl = url[0].style.backgroundImage
 
@@ -47,6 +47,10 @@ $(document).ready(function() {
 					console.log(comment);
 				};
 			};
+
+			var justTheImage = imageUrl.split("url");
+
+				$("#spiderNaming").val(justTheImage);
 
 			if(comment == null || comment == ""){
 				$(".commentText").html("<div></div>");
