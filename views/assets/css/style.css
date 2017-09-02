@@ -36,6 +36,10 @@ a:hover{
 	text-decoration: none;
 }
 
+#submitSearch:focus {
+  outline: none;
+}
+
 #logoButton, #uploadButton, #categoryButton{
 	text-align: center;
 	font-family: 'Cormorant Garamond: 500', serif;
@@ -72,6 +76,18 @@ a:hover{
 	display: inline-block;
 }
 
+#searchResults {
+	font-family: 'Montserrat', sans-serif;
+	color: #454545; 
+	padding: 0px 0px 5px 25px;
+}
+
+.viewAll {
+	float: left;
+	color: #d06d58;
+	padding: 5px 5px 5px 0px;
+}
+
 /*IMAGES TO PULL FROM SERVER*/
 
 .photoSpot {
@@ -106,69 +122,70 @@ a:hover{
 	margin: 0px;
 }
 
-
-#id1{
-	width: 100%;
-	height: 100%;	
-	background-image: url(http://i3.mirror.co.uk/incoming/article11010615.ece/ALTERNATES/s615b/Jumping-spider.jpg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-#id2{
-	width: 100%;
-	height: 100%;	
-	background-image: url(http://news.nationalgeographic.com/content/dam/news/2017/04/12/new-spider-species/01-new-spider-species.jpg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-
-#id3{
-	width: 100%;
-	height: 100%;	
-	background-image: url(https://www.thesun.co.uk/wp-content/uploads/2016/08/nintchdbpict000111735180.jpg?strip=all&w=960);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-#id4{
-	width: 100%;
-	height: 100%;	
-	background-image: url(http://animals.sandiegozoo.org/sites/default/files/2016-08/animals_hero_spider_web.jpg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
 /*END IMAGES TO PULL FROM SERVER*/
 
+
+/*UPLOAD FORM*/
+#zipForm, #emailForm{
+	width: 100%;
+}
+
+
+/*MODAL BEGINNING */
+
+h5 {
+	font-family: 'Montserrat', sans-serif;
+	color: #6d6d6d;
+}
+
+.modalForms{
+	padding: 0px;
+}
+
+.modal-body{
+	padding: 30px;
+}
 
 .modalStyle {
   position: fixed;
   max-width: 100%;
-  top: 25%;
+  top: 3%;
   transform: translate(0%, 0%);
 }
 
 .modal-content {
-	width: 240%;
+	width: 200%;
 }
 
 .modal-dialog {
-	left: -25%;
+	left: -17%;
 	max-width: 35%;
 }
 
-/*Comment Box*/
-.detailBox {
-    width: 100%;
-    border:1px solid #bbb;
+.modal-header {
+	background-color: #f6f6f6;
+	border-radius: 5px 5px 0px 0px;
+	border-bottom: 1px solid #c4c4c4;
+}
+
+#photoImage {
+	width: 75%;
+	height: 375px;
+	border-radius: 5px;
+	display: block;
+	margin: auto;
+}
+
+.modalImage {
 	border-radius: 5px;
 }
+
+.modal-footer {
+	padding: 20px 0px 20px 20px;
+	border: none;
+}
+
+/*Comment Box*/
 
 .form-group:first-child, .actionBox .form-group:first-child {
     width:80%;
@@ -212,10 +229,47 @@ a:hover{
     font-family:verdana;
     font-size:11px;
 }
-.actionBox {
-    border-top:1px dotted #bbb;
-    padding:10px;
+
+.submitName {
+	margin-top: 20px;
 }
+
+.comment{
+	margin: 0px;
+	padding: 0px;
+}
+
+#comment{
+	width: 80%
+}
+
+#commentStyle{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 15px;
+	line-height: 40px; 
+	border-bottom: 1px solid #c4c4c4;
+	margin: 0px 25px 0px 25px;
+	color: #454545;
+}
+
+.commentBackgroundArea{
+	border-radius: 5px;
+	border: 1px #c4c4c4 solid;
+	background-color: #f6f6f6;
+	margin-top: 25px;
+	height: auto;
+	padding-bottom: 40px;
+}
+
+.commentHeader{
+	padding: 0px 10px 0px 10px;
+	line-height: 40px;
+	border-bottom: 1px solid #c4c4c4;
+	background-color: #efefef;
+	border-radius: 5px 5px 0px 0px;
+}
+
+/*MODAL END */
 
 /*Parallax*/
 
@@ -281,7 +335,7 @@ a:hover{
 	#bg2-5 {
 		position: absolute;
 		top: 900px;
-		left: 890px;
+		left: 590px;
 		}
 /* back */
 #parallax-3 {

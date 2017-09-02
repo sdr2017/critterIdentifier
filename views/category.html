@@ -10,7 +10,7 @@
 
 <!-- JQuery Style Sheet -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
+
 <!-- Reset Style Sheet -->
 			<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 
@@ -43,23 +43,23 @@
 
   					<div class="form-group col-lg-2 refining">
 					    <select class="form-control" id="critterType">
-					    	<option selected value='null'>Critter Type</option>
+					    	<option selected value="">Critter Type</option>
 							<option value='spider'>Spiders</option>
 					    </select>
 					</div>
 
   					<div class="form-group col-lg-2 refining">
 						<select class="form-control" id="critterSize">
-							<option selected value='null'>Size</option>
-							<option value='small'>Small</option>
-							<option value='medium'>Medium</option>
-							<option value='large'>Large</option>
+							<option selected value="">Size</option>
+							<option value='Small'>Small</option>
+							<option value='Medium'>Medium</option>
+							<option value='Large'>Large</option>
 					    </select>
 					</div>
 
   					<div class="form-group col-lg-2 refining">
 							<select class="form-control" id="critterColor">
-								<option selected value='null'>Color</option>
+								<option selected value="">Color</option>
 								<option value='brown'>Brown</option>
 								<option value='black'>Black</option>
 								<option value='grey'>Grey</option>
@@ -74,131 +74,21 @@
 
 <!--SEARCH BAR-->
   					<div class="col-lg-6 refining">
-					    <div class="input-group" id="nameInput">
-					      <input type="text" class="form-control" placeholder="Search By Spider Name">
+					    <div class="input-group">
+					      <input type="text" class="form-control" id="nameInput" placeholder="Search By Spider Name">
 					      <span class="input-group-btn">
-					        <button class="btn btn-secondary" type="submit">Submit</button>
+					        <button class="btn btn-secondary" id='submitSearch' type="submit">Submit</button>
 					      </span>
 					    </div>
 					</div>
 
 				</div>
 
- 		 	<div class="container-fluid">
-	 		 	<div class="row">
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id1"><p class="links">Category A
-		 				</p></div>
-		 			</div>
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id2"><p class="links">Category B
-		 				</p></div>
-		 			</div>
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id3"><p class="links">Category C
-		 				</p></div>
-		 			</div>
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id4"><p class="links"><p class="links">Category D
-		 				</p></div>
-		 			</div>
-  				</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="searchResults"></div>
+			</div>
 
-  				<div class="row">
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id1"><p class="links">Category A
-		 				</p></div>
-		 			</div>
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id2"><p class="links">Category B
-		 				</p></div>
-		 			</div>
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id3"><p class="links">Category C
-		 				</p></div>
-		 			</div>
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id4"><p class="links"><p class="links">Category D
-		 				</p></div>
-		 			</div>
-  				</div>
-
-  				<div class="row">
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id1"><p class="links">Category A
-		 				</p></div>
-		 			</div>
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id2"><p class="links">Category B
-		 				</p></div>
-		 			</div>
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id3"><p class="links">Category C
-		 				</p></div>
-		 			</div>
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id4"><p class="links"><p class="links">Category D
-		 				</p></div>
-		 			</div>
-  				</div>
-
-  				<div class="row">
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id1"><p class="links">Category A
-		 				</p></div>
-		 			</div>
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id2"><p class="links">Category B
-		 				</p></div>
-		 			</div>
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id3"><p class="links">Category C
-		 				</p></div>
-		 			</div>
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id4"><p class="links"><p class="links">Category D
-		 				</p></div>
-		 			</div>
-  				</div>
-
-  				<div class="row">
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id1"><p class="links">Category A
-		 				</p></div>
-		 			</div>
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id2"><p class="links">Category B
-		 				</p></div>
-		 			</div>
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id3"><p class="links">Category C
-		 				</p></div>
-		 			</div>
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id4"><p class="links"><p class="links">Category D
-		 				</p></div>
-		 			</div>
-  				</div>
-
-  				<div class="row">
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id1"><p class="links">Category A
-		 				</p></div>
-		 			</div>
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id2"><p class="links">Category B
-		 				</p></div>
-		 			</div>
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id3"><p class="links">Category C
-		 				</p></div>
-		 			</div>
-		 			<div class="col-sm-12 col-md-3 col-lg-3 photoSpot">
-		 				<div class="image" id="id4"><p class="links"><p class="links">Category D
-		 				</p></div>
-		 			</div>
-  				</div>
-  			</div>
+ 		 	<div id="critters"></div>
   		</div>
 
 <!-- Modal -->
@@ -206,54 +96,47 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                  <h5 class="modal-title" id="critterModalLabel">Name:</h5>
+                  <!-- <h5 class="modal-title" id="critterModalLabel">Name:</h5> -->
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
               </div>
               <div class="modal-body">
-                <div id="photoImage">
-                  <a href="https://placeholder.com"><img src="http://via.placeholder.com/300x300"></a>
-                </div>
+                <div id="photoImage"></div>
 
-                <div id="spiderInfo">
-                  <ul>
-                    <li id="spiderColor">Color:</li>
-                    <li id="spiderSize">Size:</li>
-                    <li id="spiderWeb">Web:</li>
-                  </ul>
-                </div>
-                <div class="col-lg-12">
-                  <div class="input-group" id="nameInput">
-                    <input type="text" class="form-control" placeholder="Submit a Name for this Critter">
-                    <span class="input-group-btn">
-                      <button class="btn btn-secondary" type="submit">Submit</button>
-                    </span>
+                <form id="spiderNaming" ref="spiderNaming" action="/update" method="post" enctype="multipart/form-data">
+                  <div class="col-lg-12 modalForms">
+                    <div class="input-group submitName">
+                      <input type="text" name="userIdentify" class="form-control" placeholder="Submit a Name for this Critter">
+                      <span class="input-group-btn" class="submitName">
+                        <button class="btn btn-secondary" type="submit" id="submitName">Submit</button>
+                      </span>
+                    </div>
                   </div>
-                </div>
+                </form>
                 <br>
 
 <!-- Comment Box -->
-				<div class="detailBox">
+
     				<div class="actionBox">
-        				<ul class="commentList">
-            				<li>
+    					<div class="commentBackgroundArea">
+    						<h5 class="commentHeader">Comments:</h5>
                 				<div class="commenterImage"></div>
                 				<div class="commentText">
 									<span class="date"></span>
                 				</div>
-            				</li>
-        				</ul>
-        				<form class="form-inline" role="form">
-            				<div class="form-group">
-                				<input class="form-control userComment" type="text" placeholder="Do you have something to say about this critter? Type your comment below:" />
-            				</div>
-            				<div class="form-group">
-                				<button class="btn btn-default commentButton">Add</button>
-            				</div>
+        				</div>
+        				<form class="col-lg-12 form-inline modalForms" role="form">
+	        				<div class="col-lg-12 modalForms" id="coment">
+			                  <div class="input-group submitName">
+			                    <input type="text" class="form-control userComment" placeholder="Do you have something to say about this critter? Type your comment below:">
+			                    <span class="input-group-btn modalForms" class="submitName" id="commentButton">
+			                      <button class="btn btn-secondary commentButton" type="submit">Submit</button>
+			                    </span>
+			                  </div>
+			                </div>
         				</form>
     				</div>
-				</div>
 
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -273,16 +156,16 @@
 				<img id="bg3-3" src="assets/images/spider8.jpg" alt="Blanchard's air balloon"/>
 				<img id="bg3-4" src="assets/images/spider2.jpg" alt="Landscape with trees and cows"/>
 			</div>
-			
+
 			<!-- Parallax  midground clouds -->
 			<div id="parallax-2">
 				<img id="bg2-1" src="assets/images/spider5.jpg" alt="cloud"/>
 				<img id="bg2-2" src="assets/images/spider9.jpg" alt="cloud"/>
 				<img id="bg2-3" src="assets/images/spider8.jpg" alt="cloud"/>
-				<img id="bg2-4" src="assets/images/spider3.jpg" alt="cloud"/>
+				<img id="bg2-4" src="assets/images/spider1.jpg" alt="cloud"/>
 				<img id="bg2-5" src="assets/images/spider4.jpg" alt="cloud"/>
 			</div>
-			
+
 			<!-- Parallax  background clouds -->
 			<div id="parallax-3">
 				<img id="bg1-1" src="assets/images/spider6.jpg" alt="cloud"/>
@@ -313,7 +196,7 @@
       $(".image").on("click", function(){
         $("#crittersModal").modal("show");
       })
-      
+
 
     $( document ).ready(function() {
       $( ".form-control" ).autocomplete({

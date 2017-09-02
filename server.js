@@ -56,9 +56,25 @@ var client = s3.createClient({
 
 app.use(fileUpload());
 
+// Serve static content for the app from the "public" directory in the application directory.
+app.get('/update', function(req, res) {
+  res.sendFile(path.join(__dirname, '/views', 'index.html'));
+});
+
+app.post('/update', function(req, res) {
+
+var spiderName = req.body.userIdentify;
+console.log(req.body);
+
+db.Spider.update ({name: spiderName}),
+{where: {link: url}}.then(function(result) {
+  console.log("New name submitted!");
+});
+
+});
+
 app.get('/upload', function(req, res) {
 	res.sendFile(path.join(__dirname, '/views', 'upload.html'));
-  console.log(req.body);
 });
 
 app.post('/upload', function(req, res) {
@@ -66,6 +82,8 @@ app.post('/upload', function(req, res) {
 		console.log(req.files);
 		return res.status(400).send('No files were uploaded.');
 	}
+
+console.log(req.body);
 // Critter Upload using S3 client
 
 	// The name of the input field (i.e. "critterUpload") is used to retrieve the uploaded file
@@ -76,14 +94,14 @@ app.post('/upload', function(req, res) {
   console.log(critterJpg);
 
   var email = req.body.email;
-  var critterName = req.body.critterName;
+  var critterName = req.body.name;
+  var critterComment = req.body.comment;
+  var critterIdentified = req.body.identified;
   var zipCode = req.body.zip;
   var critterSize = req.body.size;
   var critterColor = req.body.color;
   var critterHairy = req.body.hairy;
   var critterWeb = req.body.web;
-
-  // var emailInput = $('#inputEmail');
 
 	// Use the mv() method to place the file somewhere on your server
 	critterUpload.mv('uploads/' + critterJpg, function(err) {
@@ -116,21 +134,24 @@ app.post('/upload', function(req, res) {
       	User.save()
       	.then(function() {
       		User.createSpider({
+            identified: critterIdentified,
       			name: critterName,
       			zipCode: zipCode,
       			size: critterSize,
       			color: critterColor,
       			hairy: critterHairy,
       			web: critterWeb,
+            comment: critterComment,
       			link: critterImage
       		})
       		.then(function() {
-      			console.log("We made a thing!");
+      			console.log("Critter submitted!");
+            console.log(critterComment);
       		});
       	});
       });
 
-			console.log("done uploading");
-			res.send('File uploaded!');
+			console.log("done uploading")
+			res.redirect("/");
 		});
 	});
