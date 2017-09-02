@@ -56,6 +56,23 @@ var client = s3.createClient({
 
 app.use(fileUpload());
 
+// Serve static content for the app from the "public" directory in the application directory.
+app.get('/update', function(req, res) {
+  res.sendFile(path.join(__dirname, '/views', 'index.html'));
+});
+
+app.post('/update', function(req, res) {
+
+var spiderName = req.body.userIdentify;
+console.log(req.body);
+
+db.Spider.update ({name: spiderName}),
+{where: {link: url}}.then(function(result) {
+  console.log("New name submitted!");
+});
+
+});
+
 app.get('/upload', function(req, res) {
 	res.sendFile(path.join(__dirname, '/views', 'upload.html'));
 });
@@ -66,6 +83,7 @@ app.post('/upload', function(req, res) {
 		return res.status(400).send('No files were uploaded.');
 	}
 
+console.log(req.body);
 // Critter Upload using S3 client
 
 	// The name of the input field (i.e. "critterUpload") is used to retrieve the uploaded file
@@ -84,10 +102,6 @@ app.post('/upload', function(req, res) {
   var critterColor = req.body.color;
   var critterHairy = req.body.hairy;
   var critterWeb = req.body.web;
-  console.log(req.body);
-
-  var userIdentify = req.body.userIdentify;
-  console.log(req.body);
 
 	// Use the mv() method to place the file somewhere on your server
 	critterUpload.mv('uploads/' + critterJpg, function(err) {

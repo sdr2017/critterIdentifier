@@ -70,24 +70,6 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/spiders/:name", function(req, res) {
-    db.Spider.update({
-      where: {
-        name: req.params.name,
-        identified: req.params.identified
-      },
-      include: [db.User]
-    }).then(function(dbSpider) {
-      res.json(dbSpider);
-      console.log("This is the req for spider names" + req.params);
-    });
-  });
-
-  app.put("/:name", function (req, res, next) {
-    var spiderName = find(req.body.name);
-    spiderName.id = req.body.id; 
-  })
-
   app.post("api/spiders", function(req, res) {
     db.Spider.create(req.body).then(function(dbSpider) {
       res.json(dbSpider);
