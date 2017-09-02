@@ -78,8 +78,14 @@ a:hover{
 
 #searchResults {
 	font-family: 'Montserrat', sans-serif;
-	color: #d06d58; 
+	color: #454545; 
 	padding: 0px 0px 5px 25px;
+}
+
+.viewAll {
+	float: left;
+	color: #d06d58;
+	padding: 5px 5px 5px 0px;
 }
 
 /*IMAGES TO PULL FROM SERVER*/

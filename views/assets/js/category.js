@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	populateHTML();
 
 //MODAL FUNCTIONALITY	
 	$(document).on('click','.image',function(){
@@ -61,7 +62,7 @@ $(document).ready(function() {
 //END MODAL FUNCTIONALITY
 
 
-//SEARCH FUNCTION BEGINNING
+//SEARCH FUNCTIONALITY BEGINNING
 
 	var critterSize;
 	var critterColor;
@@ -107,12 +108,12 @@ $(document).ready(function() {
 			console.log(search);
 
 			if(search.length <= 0){
-				$("#searchResults").html('<p>Search returned no results. Please Try again.</p>')
+				$("#searchResults").html('<p>Search returned no results. Please Try again.</p><p class="viewAll">VIEW ALL</p>')
 				hideImages();
 			}
 			else{
 				searchResults();
-				$("#searchResults").html('<p>Displaying results for ' + critterSize + ', ' + critterColor + ', ' + critterName + '</p>')
+				$("#searchResults").html('<p>Displaying results for ' + critterSize + ', ' + critterColor + ', ' + critterName + '.</p><p class="viewAll">VIEW ALL</p>')
 			}
 			searchReset();
 		};
@@ -133,11 +134,11 @@ $(document).ready(function() {
 			console.log(search);
 
 			if(search.length <= 0){
-				$("#searchResults").html('<p>Search returned no results. Please Try again.</p>')
+				$("#searchResults").html('<p>Search returned no results. Please Try again.</p><p class="viewAll">VIEW ALL</p>')
 				hideImages();
 			}
 			else{
-				$("#searchResults").html('<p>Displaying results for ' + critterSize + ', ' + critterColor + '</p>')
+				$("#searchResults").html('<p>Displaying results for ' + critterSize + ', ' + critterColor + '.</p><p class="viewAll">VIEW ALL</p>')
 				searchResults();
 			}
 			searchReset();
@@ -159,11 +160,11 @@ $(document).ready(function() {
 			console.log(search);
 
 			if(search.length <= 0){
-				$("#searchResults").html('<p>Search returned no results. Please Try again.</p>')
+				$("#searchResults").html('<p>Search returned no results. Please Try again.</p><p class="viewAll">VIEW ALL</p>')
 				hideImages();
 			}
 			else{
-				$("#searchResults").html('<p>Displaying results for ' + critterSize + '</p>')
+				$("#searchResults").html('<p>Displaying results for ' + critterSize + '.</p><p class="viewAll">VIEW ALL</p>')
 				searchResults()
 			}
 			searchReset();
@@ -185,11 +186,11 @@ $(document).ready(function() {
 			console.log(search);
 
 			if(search.length <= 0){
-				$("#searchResults").html('<p>Search returned no results. Please Try again.</p>')
+				$("#searchResults").html('<p>Search returned no results. Please Try again.</p><p class="viewAll">VIEW ALL</p>')
 				hideImages();
 			}
 			else{
-				$("#searchResults").html('<p>Displaying results for ' + critterColor + '</p>')
+				$("#searchResults").html('<p>Displaying results for ' + critterColor + '.</p><p class="viewAll">VIEW ALL</p>')
 				searchResults()
 			}
 
@@ -212,11 +213,11 @@ $(document).ready(function() {
 			console.log(search);
 
 			if(search.length <= 0){
-				$("#searchResults").html('<p>Search returned no results. Please Try again.</p>')
+				$("#searchResults").html('<p>Search returned no results. Please Try again.</p><p class="viewAll">VIEW ALL</p>')
 				hideImages();
 			}
 			else{
-				$("#searchResults").html('<p>Displaying results for ' + critterColor + ', ' +critterName + '</p>')
+				$("#searchResults").html('<p>Displaying results for ' + critterColor + ', ' +critterName + '.</p><p class="viewAll">VIEW ALL</p>')
 				searchResults()
 			}
 			searchReset();
@@ -238,11 +239,11 @@ $(document).ready(function() {
 			console.log(search);
 
 			if(search.length <= 0){
-				$("#searchResults").html('<p>Search returned no results. Please Try again.</p>')
+				$("#searchResults").html('<p>Search returned no results. Please Try again.</p><p class="viewAll">VIEW ALL</p>')
 				hideImages();
 			}
 			else{
-				$("#searchResults").html('<p>Displaying results for ' + critterName + '</p>')
+				$("#searchResults").html('<p>Displaying results for ' + critterName + '.</p><p class="viewAll">VIEW ALL</p>')
 				searchResults()
 			}
 			searchReset();
@@ -264,11 +265,11 @@ $(document).ready(function() {
 			console.log(search);
 
 			if(search.length <= 0){
-				$("#searchResults").html('<p>Search returned no results. Please Try again.</p>')
+				$("#searchResults").html('<p>Search returned no results. Please Try again.</p><p class="viewAll">VIEW ALL</p>')
 				hideImages();
 			}
 			else{
-				$("#searchResults").html('<p>Displaying results for ' + critterSize + ', ' + critterName + '</p>')
+				$("#searchResults").html('<p>Displaying results for ' + critterSize + ', ' + critterName + '.</p><p class="viewAll">VIEW ALL</p>')
 				searchResults()
 			}
 			searchReset();
@@ -285,6 +286,7 @@ $(document).ready(function() {
     		$('#submitSearch').removeClass('active');
 		};
 
+		//Actually displaying search results
 		function searchResults(){
 			var row = getRow();
 			for(var index = 0; index < search.length; index++)
@@ -339,65 +341,72 @@ function getRow()
 
     	});
 
+		$(document).on('click','.viewAll',function(){
+			$("#searchResults").hide();
+			populateHTML();
+		});
+
 //SEARCH FUNCTION END
 
 
 //POPULATING HTML FROM DATABASE
-fetch('./api/spiders').then(function(response)
-	{
-		return response.json();
-  	})
-  	.then(function(json) 
-	{
-		var spiders = json;
-
-		var row = getRow();
-		for(var index = 0; index < spiders.length; index++)
+function populateHTML(){
+	fetch('./api/spiders').then(function(response)
 		{
-				var divContainer = $("<div>");
-				$(divContainer).addClass('col-sm-12 col-md-3 col-lg-3 photoSpot');
+			return response.json();
+	  	})
+	  	.then(function(json) 
+		{
+			var spiders = json;
 
-				var divImage = $('<div>');
-				$(divImage).addClass('image');
-				$(divImage).css('width', '100%');
-				$(divImage).css('height', '100%');
-				$(divImage).css('background-image', 'url('+ spiders[index].link + ')');
-				$(divImage).css('background-position', 'center');
-				$(divImage).css('background-repeat', 'no-repeat');
-				$(divImage).css('background-size', 'cover');
+			var row = getRow();
+			for(var index = 0; index < spiders.length; index++)
+			{
+					var divContainer = $("<div>");
+					$(divContainer).addClass('col-sm-12 col-md-3 col-lg-3 photoSpot');
 
-				var paragraphName = $('<p>');
-				$(paragraphName).addClass('links');
+					var divImage = $('<div>');
+					$(divImage).addClass('image');
+					$(divImage).css('width', '100%');
+					$(divImage).css('height', '100%');
+					$(divImage).css('background-image', 'url('+ spiders[index].link + ')');
+					$(divImage).css('background-position', 'center');
+					$(divImage).css('background-repeat', 'no-repeat');
+					$(divImage).css('background-size', 'cover');
 
-				if(spiders[index].identified == true){
-					$(paragraphName).html(spiders[index].name);
-				}
-				else{
-					$(paragraphName).html("unidentified");
-				};
+					var paragraphName = $('<p>');
+					$(paragraphName).addClass('links');
 
-				$(divImage).append(paragraphName);
-				$(divContainer).append(divImage);
+					if(spiders[index].identified == true){
+						$(paragraphName).html(spiders[index].name);
+					}
+					else{
+						$(paragraphName).html("unidentified");
+					};
 
-				$(row).prepend(divContainer);
+					$(divImage).append(paragraphName);
+					$(divContainer).append(divImage);
 
-				if(index + 1 == spiders.length || (index + 1 % 4 == 0))
-				{
-					$('#critters').prepend(row);
-					row = getRow();
-				}
-		}
-	})
-  	.catch(function(error)
-  	{ 
-  		console.log(error); 
-  	});
+					$(row).prepend(divContainer);
 
-function getRow()
-{
-	var containerDiv = $('<div>');
-	$(containerDiv).addClass('row');
-	return containerDiv;
+					if(index + 1 == spiders.length || (index + 1 % 4 == 0))
+					{
+						$('#critters').prepend(row);
+						row = getRow();
+					}
+			}
+		})
+	  	.catch(function(error)
+	  	{ 
+	  		console.log(error); 
+	  	});
+
+	function getRow()
+	{
+		var containerDiv = $('<div>');
+		$(containerDiv).addClass('row');
+		return containerDiv;
+	};
 };
 
 //POPULATING HTML END
