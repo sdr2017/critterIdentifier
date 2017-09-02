@@ -47,8 +47,12 @@ $(document).ready(function() {
 				};
 			};
 
-			$(".commentText").append("<div id='commentStyle'>" + comment + "</div>");
-
+			if(comment == null || comment == ""){
+				$(".commentText").html("<div></div>");
+			}
+			else{
+				$(".commentText").html("<div id='commentStyle'>" + comment + "</div>");
+			}
 	    });
 
 
@@ -397,12 +401,6 @@ function getRow()
 };
 
 //POPULATING HTML END
-
-
-//PULLING COMMENTS FROM DB
-	// $(".commentText").append("<div id='commentStyle'>" + userComment + "</div>");
- //            $(".userComment").val("");
- //            console.log(userComment);
 
 // // comment box
       $(".commentButton").on("click", function(){

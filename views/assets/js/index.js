@@ -3,6 +3,8 @@ $(document).ready(function() {
 //MODAL FUNCTIONALITY	
 	$(document).on('click','.image',function(){
 
+		var comment = '';
+
 		$("#crittersModal").modal("show");
 
 		var url = $(this);
@@ -30,7 +32,6 @@ $(document).ready(function() {
 		$(".modal-header").html(critterTitle);
 
 		//pulling comment from DB
-		var comment
 		
 		fetch('./api/spiders').then(function(response){
 			return response.json();
@@ -47,7 +48,12 @@ $(document).ready(function() {
 				};
 			};
 
-			$(".commentText").append("<div id='commentStyle'>" + comment + "</div>");
+			if(comment == null || comment == ""){
+				$(".commentText").html("<div></div>");
+			}
+			else{
+				$(".commentText").html("<div id='commentStyle'>" + comment + "</div>");
+			}
 
 	    });
 
@@ -125,9 +131,9 @@ $(document).ready(function() {
 	// // comment box
       $(".commentButton").on("click", function(){
       	event.preventDefault();
-            var userComment = $(".userComment").val().trim();
-      	$(".commentText").append("<div class='commentText' id='commentStyle'>" + userComment + "</div>");
 
+            var userComment = $(".userComment").val().trim();
+      	$(".commentText").append("<div id='commentStyle'>" + userComment + "</div>");
             $(".userComment").val("");
             console.log(userComment);
       });
