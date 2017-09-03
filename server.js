@@ -66,6 +66,7 @@ app.post('/update', function(req, res) {
   var spiderName = req.body.userIdentify;
 
   console.log(req.body);
+  console.log(req.value);
 
   db.Spider.update ({name: spiderName} && {identified: true}),
   {where: {link: spiderImageUrl}}.then(function(result) {

@@ -20,10 +20,11 @@ $(document).ready(function() {
 		$(divImage).css('background-size', 'cover');
 		$('#photoImage').html(divImage);
 
-		
+
 		var linkValue = url[0].style.backgroundImage.split('"');
 
-		$('#spiderNaming').val(linkValue[1]);
+		$('#spiderNaming[name="spiderNaming"]').val(linkValue[1]);
+		// $('#spiderNaming').val(linkValue[1]);
 		console.log("value " + $("#spiderNaming").val());
 
 
@@ -52,10 +53,10 @@ $(document).ready(function() {
 					console.log(comment);
 				};
 			};
-
-			var justTheImage = imageUrl.split("url");
-			console.log(justTheImage);
-				$("#spiderNaming").val(justTheImage);
+			//
+			// var justTheImage = imageUrl.split("url");
+			// console.log(justTheImage);
+			// 	$("#spiderNaming").val(justTheImage[1]);
 
 			if(comment == null || comment == ""){
 				$(".commentText").html("<div></div>");
