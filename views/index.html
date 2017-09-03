@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    <!-- Page Select Buttons -->
     <div class="container-fluid">
         <div class="row" id="headerBar">
             <div class="col-lg-4 logo" id="logoButton">
@@ -114,10 +115,11 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- AutoComplete -->
     <script>
+      // Onclick functionality for showing the modal
       $(".image").on("click", function() {
           $("#crittersModal").modal("show");
       })
-      
+      // Auto populates the page with the most recent unidentified spiders
       $(document).ready(function() {
           $(".form-control").autocomplete({
               source: ["brown recluse", "black widow", "hobo spider", "funnel web grass spider", "mouse spider",
