@@ -21,7 +21,9 @@ $(document).ready(function() {
 
 		var linkValue = url[0].style.backgroundImage.split('"');
 
-		$('#spiderNaming').val(linkValue[1]);
+		$('.actionBox').append('<form id="spiderNaming" ref="spiderNaming" action="/update" method="post" enctype="multipart/form-data" value="'+linkValue[1]+'"><div class="col-lg-12 modalForms"><div class="input-group submitName"><input type="text" name="userIdentify" class="form-control" placeholder="Submit a Name for this Critter"><span class="input-group-btn" class="submitName"><button class="btn btn-secondary" type="submit" id="submitName">Submit</button></span></div></div></form>')
+
+		//$('#spiderNaming').val(linkValue[1]);
 		console.log("value " + $("#spiderNaming").val());
 
 		var name = url[0].textContent
