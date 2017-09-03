@@ -1,11 +1,14 @@
 $(document).ready(function() {
 
-	//MODAL
+//MODAL FUNCTIONALITY	
 	$(document).on('click','.image',function(){
+
+		var comment = '';
+
 		$("#crittersModal").modal("show");
 
 		var url = $(this);
-		console.log("url ", url);
+		console.log(this);
 
 		var divImage = $('<div>');
 		$(divImage).addClass('modalImage')
@@ -16,8 +19,13 @@ $(document).ready(function() {
 		$(divImage).css('background-repeat', 'no-repeat');
 		$(divImage).css('background-size', 'cover');
 		$('#photoImage').html(divImage);
-		console.log("divImage ", $(divImage));
-		console.log(url[0].textContent);
+
+		
+		var linkValue = url[0].style.backgroundImage.split('"');
+
+		$('#spiderNaming').val(linkValue[1]);
+		console.log("value " + $("#spiderNaming").val());
+
 
 		var name = url[0].textContent
 		var upperName = name.toUpperCase();
@@ -26,9 +34,38 @@ $(document).ready(function() {
 		$(critterTitle).addClass('modal-title');
 		$(critterTitle).html('Critter Name: ' + upperName);
 
-		$(".modal-header").html(critterTitle)
+		$(".modal-header").html(critterTitle);
+
+		//pulling comment from DB
+		
+		fetch('./api/spiders').then(function(response){
+			return response.json();
+  		}).then(function(json){
+			
+			var spiders = json;
+			var imageUrl = url[0].style.backgroundImage
+
+			for(var index = 0; index < spiders.length; index++){
+				if('url("'+ spiders[index].link +'")' == imageUrl){
+					console.log("links match");
+					comment = spiders[index].comment;
+					console.log(comment);
+				};
+			};
+
+			if(comment == null || comment == ""){
+				$(".commentText").html("<div></div>");
+			}
+			else{
+				$(".commentText").html("<div id='commentStyle'>" + comment + "</div>");
+			}
+
+	    });
+
+
 
     });
+//END MODAL FUNCTIONALITY
 
 	//POPULATE HTML FROM DATABASE
 	fetch('./api/spiders').then(function(response)
@@ -99,9 +136,9 @@ $(document).ready(function() {
 	// // comment box
       $(".commentButton").on("click", function(){
       	event.preventDefault();
-            var userComment = $(".userComment").val().trim();
-      	$(".commentText").append("<div class='commentText' id='commentStyle'>" + userComment + "</div>");
 
+            var userComment = $(".userComment").val().trim();
+      	$(".commentText").append("<div id='commentStyle'>" + userComment + "</div>");
             $(".userComment").val("");
             console.log(userComment);
       });
