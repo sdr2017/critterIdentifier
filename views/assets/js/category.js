@@ -88,6 +88,9 @@ $(document).ready(function() {
                 console.log(booleanSize);
                 console.log(booleanColor);
                 console.log(booleanName);
+                console.log("size " + critterSize);
+                console.log("name " + critterName);
+                console.log("color " + critterColor);
 
                 //If search by size, color and name are selected
                 if (booleanSize == true && booleanColor == true && booleanName == true) {
@@ -104,11 +107,11 @@ $(document).ready(function() {
                     console.log(search);
 
                     if (search.length <= 0) {
-                        $("#searchResults").html('<p>Search returned no results. Please Try again.</p><p class="viewAll">VIEW ALL</p>')
+                        $("#searchResults").html('<p>Search returned no results. Please Try again.</p><button class="viewAll">VIEW ALL</button>')
                         hideImages();
                     } else {
                         searchResults();
-                        $("#searchResults").html('<p>Displaying results for ' + critterSize + ', ' + critterColor + ', ' + critterName + '.</p><p class="viewAll">VIEW ALL</p>')
+                        $("#searchResults").html('<p>Displaying results for ' + critterSize + ', ' + critterColor + ', ' + critterName + '.</p><button class="viewAll">VIEW ALL</button>')
                     }
                     searchReset();
                 };
@@ -128,10 +131,10 @@ $(document).ready(function() {
                     console.log(search);
 
                     if (search.length <= 0) {
-                        $("#searchResults").html('<p>Search returned no results. Please Try again.</p><p class="viewAll">VIEW ALL</p>')
+                        $("#searchResults").html('<p>Search returned no results. Please Try again.</p><button class="viewAll">VIEW ALL</button>')
                         hideImages();
                     } else {
-                        $("#searchResults").html('<p>Displaying results for ' + critterSize + ', ' + critterColor + '.</p><p class="viewAll">VIEW ALL</p>')
+                        $("#searchResults").html('<p>Displaying results for ' + critterSize + ', ' + critterColor + '.</p><button class="viewAll">VIEW ALL</button>')
                         searchResults();
                     }
                     searchReset();
@@ -140,6 +143,7 @@ $(document).ready(function() {
                 //If search by size is selected
                 if (booleanSize == true && booleanColor == false && booleanName == false) {
                     console.log("size selected");
+                    console.log(critterSize)
 
                     search = [];
 
@@ -152,11 +156,11 @@ $(document).ready(function() {
                     console.log(search);
 
                     if (search.length <= 0) {
-                        $("#searchResults").html('<p>Search returned no results. Please Try again.</p><p class="viewAll">VIEW ALL</p>')
+                        $("#searchResults").html('<p>Search returned no results. Please Try again.</p><button class="viewAll">VIEW ALL</button>')
                         hideImages();
                     } else {
-                        $("#searchResults").html('<p>Displaying results for ' + critterSize + '.</p><p class="viewAll">VIEW ALL</p>')
-                        searchResults()
+                        $("#searchResults").html('<p>Displaying results for ' + critterSize + '.</p><button class="viewAll">VIEW ALL</button>')
+                        searchResults();
                     }
                     searchReset();
                 };
@@ -176,11 +180,11 @@ $(document).ready(function() {
                     console.log(search);
 
                     if (search.length <= 0) {
-                        $("#searchResults").html('<p>Search returned no results. Please Try again.</p><p class="viewAll">VIEW ALL</p>')
+                        $("#searchResults").html('<p>Search returned no results. Please Try again.</p><button class="viewAll">VIEW ALL</button>')
                         hideImages();
                     } else {
-                        $("#searchResults").html('<p>Displaying results for ' + critterColor + '.</p><p class="viewAll">VIEW ALL</p>')
-                        searchResults()
+                        $("#searchResults").html('<p>Displaying results for ' + critterColor + '.</p><button class="viewAll">VIEW ALL</button>')
+                        searchResults();
                     }
 
                     searchReset();
@@ -201,10 +205,10 @@ $(document).ready(function() {
                     console.log(search);
 
                     if (search.length <= 0) {
-                        $("#searchResults").html('<p>Search returned no results. Please Try again.</p><p class="viewAll">VIEW ALL</p>')
+                        $("#searchResults").html('<p>Search returned no results. Please Try again.</p><button class="viewAll">VIEW ALL</button>')
                         hideImages();
                     } else {
-                        $("#searchResults").html('<p>Displaying results for ' + critterColor + ', ' + critterName + '.</p><p class="viewAll">VIEW ALL</p>')
+                        $("#searchResults").html('<p>Displaying results for ' + critterColor + ', ' + critterName + '.</p><button class="viewAll">VIEW ALL</button>')
                         searchResults()
                     }
                     searchReset();
@@ -225,10 +229,10 @@ $(document).ready(function() {
                     console.log(search);
 
                     if (search.length <= 0) {
-                        $("#searchResults").html('<p>Search returned no results. Please Try again.</p><p class="viewAll">VIEW ALL</p>')
+                        $("#searchResults").html('<p>Search returned no results. Please Try again.</p><button class="viewAll">VIEW ALL</button>')
                         hideImages();
                     } else {
-                        $("#searchResults").html('<p>Displaying results for ' + critterName + '.</p><p class="viewAll">VIEW ALL</p>')
+                        $("#searchResults").html('<p>Displaying results for ' + critterName + '.</p><button class="viewAll">VIEW ALL</button>')
                         searchResults()
                     }
                     searchReset();
@@ -249,10 +253,10 @@ $(document).ready(function() {
                     console.log(search);
 
                     if (search.length <= 0) {
-                        $("#searchResults").html('<p>Search returned no results. Please Try again.</p><p class="viewAll">VIEW ALL</p>')
+                        $("#searchResults").html('<p>Search returned no results. Please Try again.</p><button class="viewAll">VIEW ALL</button>')
                         hideImages();
                     } else {
-                        $("#searchResults").html('<p>Displaying results for ' + critterSize + ', ' + critterName + '.</p><p class="viewAll">VIEW ALL</p>')
+                        $("#searchResults").html('<p>Displaying results for ' + critterSize + ', ' + critterName + '.</p><button class="viewAll">VIEW ALL</button>')
                         searchResults()
                     }
                     searchReset();
@@ -262,12 +266,6 @@ $(document).ready(function() {
                     $(".photoSpot").hide();
                 };
 
-                function searchReset() {
-                    $("#nameInput").val('');
-                    $("#critterSize").val('');
-                    $("#critterColor").val('');
-                    $('#submitSearch').removeClass('active');
-                };
 
                 //Actually displaying search results
                 function searchResults() {
@@ -319,8 +317,17 @@ $(document).ready(function() {
 
     });
 
+	function searchReset() {
+        $("#nameInput").val('');
+        $("#critterSize").val('');
+        $("#critterColor").val('');
+        $('#submitSearch').removeClass('active');
+    };
+
     $(document).on('click', '.viewAll', function() {
         $("#searchResults").hide();
+        search = [];
+    	searchReset();
         populateHTML();
     });
     //SEARCH FUNCTION END
