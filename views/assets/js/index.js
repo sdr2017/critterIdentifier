@@ -97,7 +97,7 @@ $(document).ready(function() {
             var row = getRow();
             for (var index = 0; index < identified.length; index++) {
 
-                var divContainer = $("<div>");
+                var divContainer = $("<button>");
                 $(divContainer).addClass('col-sm-12 col-md-3 col-lg-3 photoSpot');
 
                 var divImage = $('<div>');

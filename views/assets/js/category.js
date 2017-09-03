@@ -273,7 +273,7 @@ $(document).ready(function() {
                 function searchResults() {
                     var row = getRow();
                     for (var index = 0; index < search.length; index++) {
-                        var divContainer = $("<div>");
+                        var divContainer = $("<button>");
                         $(divContainer).addClass('col-sm-12 col-md-3 col-lg-3 photoSpot');
 
                         var divImage = $('<div>');
@@ -335,7 +335,7 @@ $(document).ready(function() {
 
                 var row = getRow();
                 for (var index = 0; index < spiders.length; index++) {
-                    var divContainer = $("<div>");
+                    var divContainer = $("<button>");
                     $(divContainer).addClass('col-sm-12 col-md-3 col-lg-3 photoSpot');
 
                     var divImage = $('<div>');

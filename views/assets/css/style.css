@@ -9,6 +9,12 @@ body {
     background-color: #f6f6f6;
 }
 
+button {
+	background-color: transparent;
+	border: none;
+	outline: none;
+}
+
 .container-fluid {
     margin: 0px;
     padding: 0px;
