@@ -16,19 +16,32 @@ nightmare
   .wait(1000)
   .select("#critterWeb", "true")
   .wait(1000)
-  // .checkOption("#checkNo", "false")
+  // .checkOption("#checkNo")
   // .wait(1000)
   // .upload("#imageFile", "../views/images/testImage.JPG")
-  // .wait(2000)
+  // .wait(12000)
   // .click("#submitButton")
-  // .wait(2000)
+  // .wait(60000)
+  // .wait(1000)
+  .click("#logoImage")
+  .wait(1000)
+
 
   .evaluate(function(){
     return document.title;
   })
   .end()
   .then(function(title){
-    console.log(title);
+    console.log("Web page tested: " + title);
+    console.log("URL opened.");
+    console.log("Navagated to submit page.")
+    console.log("Test email inputed.");
+    console.log("Zip Code inputed.");
+    console.log("Color selected.");
+    console.log("size selected.");
+    console.log("Hairy selected.");
+    console.log("Spider has a web selected.");
+    console.log("Navagated to the landing page.");
   })
   .catch(function(error) {
     console.error("Search failed:", error);
