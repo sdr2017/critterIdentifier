@@ -449,6 +449,7 @@ h5 {
 		width: 100%;
 		background-color: #efefef;
 		border-bottom: #c4c4c4 1px solid;
+		margin-bottom: 10px;
 	}
 	
 	#logoImage, #finger, #eye {
@@ -471,6 +472,7 @@ h5 {
 		width: 100%;
 		background-color: #efefef;
 		border-bottom: #c4c4c4 1px solid;
+		margin-bottom: 10px;
 	}
 
 	#logoImage, #finger {
@@ -505,6 +507,7 @@ h5 {
 		width: 100%;
 		background-color: #efefef;
 		border-bottom: #c4c4c4 1px solid;
+		margin-bottom: 10px;
 	}
 
 	#logoImage, #finger, #eye {
@@ -534,9 +537,22 @@ h5 {
 
 	.photoSpot {
 		text-align: center;
-		height: 250px;
+		height: 350px;
 		padding: 10px 25px 10px 25px;
 	}
+
+	.modalImage {
+    	width: 100%;
+    }
+
+    #photoImage {
+    	margin: 0px;
+    	width: 100%;
+    }
+
+    .modal-body {
+    	padding: 20px;
+    }
 }
 
 @media screen and (max-width: 575px) and (min-width: 0px) {
@@ -546,6 +562,7 @@ h5 {
 		background-color: #efefef;
 		padding: 10px 0px 0px 0px;
 		border-bottom: #c4c4c4 1px solid;
+		margin-bottom: 10px;
 	}
 
 	#eye {
@@ -590,7 +607,20 @@ h5 {
 	}
 
     .modal-dialog {
-        left: 5%;
-        max-width: 35%;
+        left: 7%;
+        max-width: 40%;
+    }
+
+    .modalImage {
+    	width: 100%;
+    }
+
+    #photoImage {
+    	margin: 0px;
+    	width: 100%;
+    }
+
+    .modal-body {
+    	padding: 20px;
     }
 }
