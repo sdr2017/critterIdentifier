@@ -1,3 +1,8 @@
+@media (max-width: 1200px) and (min-width: 1045px) {
+	
+}
+
+
 body {
     margin: 0px;
     padding: 0px;
@@ -396,6 +401,99 @@ h5 {
     /* move left by half element's width */
 }
 
+
+/*Parallax*/
+
+@media (max-width: 1044px) and (min-width: 993px) {
+	#headerBar {
+		height: 120px;
+		width: 100%;
+		background-color: #efefef;
+		border-bottom: #c4c4c4 1px solid;
+	}
+
+	#logoImage, #finger, #eye {
+	    align-items: center;
+	    vertical-align: middle;
+	    text-align: center;
+	    margin: 0px 100px 2px 100px;
+    }
+}
+
+@media (max-width: 992px) and (min-width: 891px) {
+	#headerBar {
+		height: 120px;
+		width: 100%;
+		background-color: #efefef;
+		border-bottom: #c4c4c4 1px solid;
+	}
+	
+	#logoImage, #finger, #eye {
+	    align-items: center;
+	    vertical-align: middle;
+	    text-align: center;
+	    margin: 0px 100px 2px 100px;
+    }
+}
+
+@media (max-width: 890px) and (min-width: 768px) {
+	#headerBar {
+		height: 120px;
+		width: 100%;
+		background-color: #efefef;
+		border-bottom: #c4c4c4 1px solid;
+	}
+
+	#logoImage, #finger, #eye {
+	    align-items: center;
+	    vertical-align: middle;
+	    text-align: center;
+	    margin: 0px 70px 2px 70px;
+    }
+}
+
+
+@media (max-width: 767px) and (min-width: 576px) {
+	#headerBar {
+		height: 200px;
+		width: 100%;
+		background-color: #efefef;
+		border-bottom: #c4c4c4 1px solid;
+	}
+
+	#logoImage, #finger, #eye {
+	    align-items: center;
+	    vertical-align: middle;
+	    text-align: center;
+	    margin: 0px 100px 2px 100px;
+    }
+
+	.refining {
+		margin-bottom: 10px;
+	}
+
+	#refineSearch {
+		margin-bottom: 10px;
+	}
+
+	#searchResults {
+		text-align: center;
+		padding: 0px;
+	}
+
+	.viewAll {
+		text-align: center;
+		float: none;
+	}
+
+	.photoSpot {
+		text-align: center;
+		height: 350px;
+		padding: 10px 25px 10px 25px;
+	}
+}
+
+
 #bg1-1 {
     position: absolute;
     top: 85px;
@@ -424,6 +522,46 @@ h5 {
 /*Parallax*/
 
 @media screen and (max-width: 575px) and (min-width: 0px) {
+	#headerBar{
+		height: 200px;
+		width: 100%;
+		background-color: #efefef;
+		padding: 10px 20px 0px 20px;
+		border-bottom: #c4c4c4 1px solid;
+	}
+
+	.refining {
+		margin-bottom: 10px;
+		padding: 0px;
+	}
+
+	#refineSearch {
+		margin-bottom: 10px;
+	}
+
+	#searchResults {
+		text-align: center;
+		padding: 0px;
+	}
+
+	.viewAll {
+		text-align: center;
+		float: none;
+	}
+
+	.photoSpot {
+		text-align: center;
+		height: 350px;
+		padding: 10px 25px 10px 25px;
+	}
+
+	.form-group:first-child, .actionBox .form-group:first-child {
+    	width:100%;
+	}
+
+	.form-group:nth-child(2), .actionBox .form-group:nth-child(2) {
+    	width:100%;
+	}
 
     .modal-dialog {
         left: 5%;

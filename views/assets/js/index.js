@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
-    //MODAL FUNCTIONALITY	
-    $(document).on('click', '.image', function() {
+//MODAL FUNCTIONALITY
+	$(document).on('click','.image',function(){
 
         var comment = '';
 
@@ -20,10 +20,10 @@ $(document).ready(function() {
         $(divImage).css('background-size', 'cover');
         $('#photoImage').html(divImage);
 
-        var linkValue = url[0].style.backgroundImage.split('"');
 
-        $('#spiderNaming').val(linkValue[1]);
-        console.log("value " + $("#spiderNaming").val());
+				var linkValue = url[0].style.backgroundImage.split('"');
+				$('#critterImage[name="critterImage"]').val(linkValue[1]);
+				console.log("value " + $("#critterImage").val());
 
 
         var name = url[0].textContent
@@ -35,11 +35,26 @@ $(document).ready(function() {
 
         $(".modal-header").html(critterTitle);
 
-        //pulling comment from DB
+		//pulling comment from DB
 
-        fetch('./api/spiders').then(function(response) {
-            return response.json();
-        }).then(function(json) {
+		fetch('./api/spiders').then(function(response){
+			return response.json();
+  		}).then(function(json){
+
+			var spiders = json;
+			var imageUrl = url[0].style.backgroundImage
+
+			for(var index = 0; index < spiders.length; index++){
+				if('url("'+ spiders[index].link +'")' == imageUrl){
+					console.log("links match");
+					comment = spiders[index].comment;
+					console.log(comment);
+				};
+			};
+			//
+			// var justTheImage = imageUrl.split("url");
+			// console.log(justTheImage);
+			// 	$("#spiderNaming").val(justTheImage[1]);
 
             var spiders = json;
             var imageUrl = url[0].style.backgroundImage

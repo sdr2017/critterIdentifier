@@ -61,15 +61,22 @@ app.get('/update', function(req, res) {
     res.sendFile(path.join(__dirname, '/views', 'index.html'));
 });
 
+app.get('/update', function(req, res) {
+    res.sendFile(path.join(__dirname, '/views', 'category.html'));
+});
+
 app.post('/update', function(req, res) {
+  var spiderName = req.body.userIdentify;
+  var spiderImage = req.body.critterImage;
+  console.log(req.body);
 
-    var spiderName = req.body.userIdentify;
-    console.log(req.body);
-
-    db.Spider.update({ name: spiderName }), { where: { link: url } }.then(function(result) {
-        console.log("New name submitted!");
-    });
-
+  let updateValues = {name: spiderName, identified: true};
+  db.Spider.update(updateValues, { where: { link: spiderImage } }).then((result) => {
+    // here your result is simply an array with number of affected rows
+        // [ 1 ]
+    console.log(result);
+    res.redirect("/");
+  });
 });
 
 app.get('/upload', function(req, res) {
