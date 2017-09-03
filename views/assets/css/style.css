@@ -401,6 +401,29 @@ h5 {
     /* move left by half element's width */
 }
 
+#bg1-1 {
+    position: absolute;
+    top: 85px;
+    left: -270px;
+}
+
+#bg1-2 {
+    position: absolute;
+    top: 440px;
+    left: 795px;
+}
+
+#bg1-3 {
+    position: absolute;
+    top: 900px;
+    left: -220px;
+}
+
+#bg1-4 {
+    position: absolute;
+    top: 1020px;
+    left: 450px;
+}
 
 /*Parallax*/
 
@@ -416,7 +439,7 @@ h5 {
 	    align-items: center;
 	    vertical-align: middle;
 	    text-align: center;
-	    margin: 0px 100px 2px 100px;
+	    margin: 0px 120px 2px 120px;
     }
 }
 
@@ -444,11 +467,22 @@ h5 {
 		border-bottom: #c4c4c4 1px solid;
 	}
 
-	#logoImage, #finger, #eye {
+	#logoImage, #finger {
 	    align-items: center;
 	    vertical-align: middle;
 	    text-align: center;
 	    margin: 0px 70px 2px 70px;
+    }
+
+    #eye {
+    	align-items: center;
+	    vertical-align: middle;
+	    text-align: center;
+	    margin: 0px 100px 2px 100px;
+    }
+
+    #categoryButton {
+    	padding: 0px;
     }
 }
 
@@ -465,7 +499,7 @@ h5 {
 	    align-items: center;
 	    vertical-align: middle;
 	    text-align: center;
-	    margin: 0px 100px 2px 100px;
+	    margin: 0px 10px 2px 10px;
     }
 
 	.refining {
@@ -493,42 +527,22 @@ h5 {
 	}
 }
 
-
-#bg1-1 {
-    position: absolute;
-    top: 85px;
-    left: -270px;
-}
-
-#bg1-2 {
-    position: absolute;
-    top: 440px;
-    left: 795px;
-}
-
-#bg1-3 {
-    position: absolute;
-    top: 900px;
-    left: -220px;
-}
-
-#bg1-4 {
-    position: absolute;
-    top: 1020px;
-    left: 450px;
-}
-
-
-/*Parallax*/
-
 @media screen and (max-width: 575px) and (min-width: 0px) {
 	#headerBar{
 		height: 200px;
 		width: 100%;
 		background-color: #efefef;
-		padding: 10px 20px 0px 20px;
+		padding: 10px 0px 0px 0px;
 		border-bottom: #c4c4c4 1px solid;
 	}
+
+	#eye {
+		margin: 0px 10px 2px 0px;
+	}
+
+	#categoryButton {
+    	padding: 0px;
+    }
 
 	.refining {
 		margin-bottom: 10px;

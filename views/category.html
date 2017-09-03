@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CritterCategory</title>
     <!-- Bootstrap 4.0-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -19,25 +20,25 @@
 	<!-- Page Select Buttons -->
     <div class="container-fluid">
         <div class="row" id="headerBar">
-            <div class="col-lg-4 logo" id="logoButton">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 logo" id="logoButton">
                 <a href="/"><img id="logoImage" src="assets/images/logo.jpg">CRITTERCULL</a>
             </div>
-            <div class="col-lg-4 catogory" id="categoryButton">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 catogory" id="categoryButton">
                 <a id="selectedMenuItem" href="/category.html"><img id="eye" src="assets/images/search.jpg">VIEW BY CATEGORY</a>
             </div>
-            <div class="col-lg-4 upload" id="uploadButton">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 upload" id="uploadButton">
                 <a href="/upload.html"><img id="finger" src="assets/images/finger.jpg">UPLOAD</a>
             </div>
         </div>
         <!-- Search Selectors -->
         <div class="row" id="refineSearch">
-            <div class="form-group col-lg-2 refining">
+            <div class="form-group col-xs-12 col-sm-12 col-md-2 col-lg-2 refining">
                 <select class="form-control" id="critterType">
                     <option selected value="">Critter Type</option>
                     <option value='spider'>Spiders</option>
                 </select>
             </div>
-            <div class="form-group col-lg-2 refining">
+            <div class="form-group col-xs-12 col-sm-12 col-md-2 col-lg-2 refining">
                 <select class="form-control" id="critterSize">
                     <option selected value="">Size</option>
                     <option value='Small'>Small</option>
@@ -45,7 +46,7 @@
                     <option value='Large'>Large</option>
                 </select>
             </div>
-            <div class="form-group col-lg-2 refining">
+            <div class="form-group col-xs-12 col-sm-12 col-md-2 col-lg-2 refining">
                 <select class="form-control" id="critterColor">
                     <option selected value="">Color</option>
                     <option value='brown'>Brown</option>
@@ -60,7 +61,7 @@
                 </select>
             </div>
             <!--SEARCH BAR-->
-            <div class="col-lg-6 refining">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 refining">
                 <div class="input-group">
                     <input type="text" class="form-control" id="nameInput" placeholder="Search By Spider Name">
                     <span class="input-group-btn">
