@@ -64,13 +64,15 @@ app.get('/update', function(req, res) {
 app.post('/update', function(req, res) {
 
   var spiderName = req.body.userIdentify;
-
+  var spiderImage = req.body.critterImage;
   console.log(req.body);
-  console.log(req.value);
 
-  db.Spider.update ({name: spiderName} && {identified: true}),
-  {where: {link: spiderImageUrl}}.then(function(result) {
-    console.log("New name submitted!");
+  let updateValues = {name: spiderName, identified: true};
+  db.Spider.update(updateValues, { where: { link: spiderImage } }).then((result) => {
+    // here your result is simply an array with number of affected rows
+        // [ 1 ]
+    console.log(result);
+    res.redirect("/");
   });
 
 });

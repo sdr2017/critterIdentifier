@@ -21,11 +21,9 @@ $(document).ready(function() {
         $('#photoImage').html(divImage);
 
 
-		var linkValue = url[0].style.backgroundImage.split('"');
-
-		$('#spiderNaming[name="spiderNaming"]').val(linkValue[1]);
-		// $('#spiderNaming').val(linkValue[1]);
-		console.log("value " + $("#spiderNaming").val());
+				var linkValue = url[0].style.backgroundImage.split('"');
+				$('#critterImage[name="critterImage"]').val(linkValue[1]);
+				console.log("value " + $("#critterImage").val());
 
 
         var name = url[0].textContent
