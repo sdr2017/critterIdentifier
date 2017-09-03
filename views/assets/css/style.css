@@ -457,6 +457,12 @@ h5 {
 	    text-align: center;
 	    margin: 0px 100px 2px 100px;
     }
+
+    .photoSpot {
+		text-align: center;
+		height: 250px;
+		padding: 10px 15px 10px 15px;
+	}
 }
 
 @media (max-width: 890px) and (min-width: 768px) {
@@ -484,6 +490,12 @@ h5 {
     #categoryButton {
     	padding: 0px;
     }
+
+    .photoSpot {
+		text-align: center;
+		height: 250px;
+		padding: 10px 15px 10px 15px;
+	}
 }
 
 
@@ -522,7 +534,7 @@ h5 {
 
 	.photoSpot {
 		text-align: center;
-		height: 350px;
+		height: 250px;
 		padding: 10px 25px 10px 25px;
 	}
 }
