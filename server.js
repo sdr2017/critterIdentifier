@@ -61,8 +61,11 @@ app.get('/update', function(req, res) {
     res.sendFile(path.join(__dirname, '/views', 'index.html'));
 });
 
-app.post('/update', function(req, res) {
+app.get('/update', function(req, res) {
+    res.sendFile(path.join(__dirname, '/views', 'category.html'));
+});
 
+app.post('/update', function(req, res) {
   var spiderName = req.body.userIdentify;
   var spiderImage = req.body.critterImage;
   console.log(req.body);
@@ -74,7 +77,6 @@ app.post('/update', function(req, res) {
     console.log(result);
     res.redirect("/");
   });
-
 });
 
 app.get('/upload', function(req, res) {
