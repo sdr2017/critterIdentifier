@@ -31,9 +31,9 @@ nightmare
     .wait(1000)
     .click(".commentButton")
     .wait(1000)
-    .type("#submitName", "Test that this field works")
-    .wait(1000)
-    .click("#closeButton")
+    // .type("#submitName", "Test that this field works")
+    // .wait(1000)
+    // .click("#closeButton")
     .wait(3000)
     .evaluate(function() {
         return document.title;

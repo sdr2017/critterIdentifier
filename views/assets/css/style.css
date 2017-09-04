@@ -2,11 +2,24 @@
 	
 }
 
+#critterSize, #critterColor, #identified, #critterWeb, #critterHairy, #critterType {
+    background-image:none;
+    -webkit-appearance: none;
+	-moz-appearance: none;
+    box-shadow: none;
+}
 
 body {
     margin: 0px;
     padding: 0px;
     background-color: #f6f6f6;
+}
+
+button {
+	background-color: transparent;
+	border: none;
+	outline: none;
+	cursor:pointer;
 }
 
 .container-fluid {
@@ -43,6 +56,18 @@ a:hover {
 
 #submitSearch:focus {
     outline: none;
+}
+
+#submitButton:hover {
+	color: #ffffff;
+	background-color: #d06d58;
+}
+
+#submitButton, .form-control-file {
+	border: 1px solid rgba(0,0,0,.15);
+	border-radius: .25rem;
+	color: #464a4c;
+	background-color: #ffffff;
 }
 
 #logoButton,
@@ -359,8 +384,8 @@ h5 {
 
 #bg2-1 {
     position: absolute;
-    top: 162px;
-    left: 200px;
+    top: 200px;
+    left: 700px;
 }
 
 #bg2-2 {
@@ -401,6 +426,29 @@ h5 {
     /* move left by half element's width */
 }
 
+#bg1-1 {
+    position: absolute;
+    top: 85px;
+    left: -270px;
+}
+
+#bg1-2 {
+    position: absolute;
+    top: 440px;
+    left: 795px;
+}
+
+#bg1-3 {
+    position: absolute;
+    top: 900px;
+    left: -220px;
+}
+
+#bg1-4 {
+    position: absolute;
+    top: 1020px;
+    left: 450px;
+}
 
 /*Parallax*/
 
@@ -416,7 +464,7 @@ h5 {
 	    align-items: center;
 	    vertical-align: middle;
 	    text-align: center;
-	    margin: 0px 100px 2px 100px;
+	    margin: 0px 120px 2px 120px;
     }
 }
 
@@ -426,6 +474,7 @@ h5 {
 		width: 100%;
 		background-color: #efefef;
 		border-bottom: #c4c4c4 1px solid;
+		margin-bottom: 10px;
 	}
 	
 	#logoImage, #finger, #eye {
@@ -434,6 +483,12 @@ h5 {
 	    text-align: center;
 	    margin: 0px 100px 2px 100px;
     }
+
+    .photoSpot {
+		text-align: center;
+		height: 250px;
+		padding: 10px 15px 10px 15px;
+	}
 }
 
 @media (max-width: 890px) and (min-width: 768px) {
@@ -442,14 +497,47 @@ h5 {
 		width: 100%;
 		background-color: #efefef;
 		border-bottom: #c4c4c4 1px solid;
+		margin-bottom: 10px;
 	}
 
-	#logoImage, #finger, #eye {
+	#logoImage, #finger {
 	    align-items: center;
 	    vertical-align: middle;
 	    text-align: center;
 	    margin: 0px 70px 2px 70px;
     }
+
+    #eye {
+    	align-items: center;
+	    vertical-align: middle;
+	    text-align: center;
+	    margin: 0px 100px 2px 100px;
+    }
+
+    #categoryButton {
+    	padding: 0px;
+    }
+
+    .photoSpot {
+		text-align: center;
+		height: 250px;
+		padding: 10px 15px 10px 15px;
+	}
+
+	#parallax-1 {
+    	display: none;
+	}
+
+
+	#parallax-2 {
+	    display: none;
+	}
+
+
+	#parallax-3 {
+	    display: none;
+	}
+
 }
 
 
@@ -459,13 +547,14 @@ h5 {
 		width: 100%;
 		background-color: #efefef;
 		border-bottom: #c4c4c4 1px solid;
+		margin-bottom: 10px;
 	}
 
 	#logoImage, #finger, #eye {
 	    align-items: center;
 	    vertical-align: middle;
 	    text-align: center;
-	    margin: 0px 100px 2px 100px;
+	    margin: 0px 10px 2px 10px;
     }
 
 	.refining {
@@ -491,44 +580,53 @@ h5 {
 		height: 350px;
 		padding: 10px 25px 10px 25px;
 	}
+
+	.modalImage {
+    	width: 100%;
+    }
+
+    #photoImage {
+    	margin: 0px;
+    	width: 100%;
+    }
+
+    .modal-body {
+    	padding: 20px;
+    }
+
+    #parallax-1 {
+    	display: none;
+	}
+
+
+	#parallax-2 {
+	    display: none;
+	}
+
+
+	#parallax-3 {
+	    display: none;
+	}
+
 }
-
-
-#bg1-1 {
-    position: absolute;
-    top: 85px;
-    left: -270px;
-}
-
-#bg1-2 {
-    position: absolute;
-    top: 440px;
-    left: 795px;
-}
-
-#bg1-3 {
-    position: absolute;
-    top: 900px;
-    left: -220px;
-}
-
-#bg1-4 {
-    position: absolute;
-    top: 1020px;
-    left: 450px;
-}
-
-
-/*Parallax*/
 
 @media screen and (max-width: 575px) and (min-width: 0px) {
 	#headerBar{
 		height: 200px;
 		width: 100%;
 		background-color: #efefef;
-		padding: 10px 20px 0px 20px;
+		padding: 10px 0px 0px 0px;
 		border-bottom: #c4c4c4 1px solid;
+		margin-bottom: 10px;
 	}
+
+	#eye {
+		margin: 0px 10px 2px 0px;
+	}
+
+	#categoryButton {
+    	padding: 0px;
+    }
 
 	.refining {
 		margin-bottom: 10px;
@@ -564,7 +662,36 @@ h5 {
 	}
 
     .modal-dialog {
-        left: 5%;
-        max-width: 35%;
+        left: 7%;
+        max-width: 40%;
     }
+
+    .modalImage {
+    	width: 100%;
+    }
+
+    #photoImage {
+    	margin: 0px;
+    	width: 100%;
+    }
+
+    .modal-body {
+    	padding: 20px;
+    }
+
+    
+    #parallax-1 {
+    	display: none;
+	}
+
+
+	#parallax-2 {
+	    display: none;
+	}
+
+
+	#parallax-3 {
+	    display: none;
+	}
+
 }
