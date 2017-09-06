@@ -357,7 +357,7 @@ $(document).ready(function() {
                     var paragraphName = $('<p>');
                     $(paragraphName).addClass('links');
 
-                    if (spiders[index].identified == true) {
+                    if (spiders[index].identified == true && spiders[index].name !== "") {
                         $(paragraphName).html(spiders[index].name);
                     } else {
                         $(paragraphName).html("unidentified");
