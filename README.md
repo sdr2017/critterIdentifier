@@ -2,13 +2,13 @@
 
 An web application to help identifying those pesky critters.
 
-![desktop](view/assets/images/desktop.jpg)
+![desktop](views/assets/images/desktop.jpg)
 
 ## How it works
 
 Users can upload images of unidentified critters (spiders are currently the only supported critter) and other users can submit species names for the critter in an attempt to identify them. Users can also search the database of images for critters that may look like one they are trying to identify. 
 
-![responsive](view/assets/images/responsive.jpg)
+![responsive](views/assets/images/responsive.jpg)
 
 # Technologies Used
 * HTML
