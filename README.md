@@ -21,6 +21,10 @@ Users can upload images of unidentified critters (spiders are currently the only
 * Express
 * Amazon S3
 
+## My Contribution
+
+Primarily responsible for general user interface and design, search logic, mobile responsiveness, general troubleshooting.
+
 ---
 
 To view the app, please visit: https://fierce-meadow-35168.herokuapp.com/
