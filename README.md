@@ -15,6 +15,7 @@ Users can upload images of unidentified critters (spiders are currently the only
 * CSS
 * Bootstrap
 * JavaScript
+* jQuery
 * Node
 * MySQL
 * Sequelize
